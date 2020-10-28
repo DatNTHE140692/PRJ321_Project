@@ -10,11 +10,11 @@
                     <div class="header-left d-flex align-items-center">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index"><img src="assets/img/logo/logo.png" alt=""></a>
+                            <a href="home"><img src="assets/img/logo/logo.png" alt=""></a>
                         </div>
                         <!-- Logo-2 -->
                         <div class="logo2">
-                            <a href="index"><img src="assets/img/logo/logo2.png" alt=""></a>
+                            <a href="home"><img src="assets/img/logo/logo2.png" alt=""></a>
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu d-none d-lg-block">

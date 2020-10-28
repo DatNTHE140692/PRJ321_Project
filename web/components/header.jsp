@@ -53,9 +53,9 @@
                                     <c:choose>
                                         <c:when test="${sessionScope.account eq null}">
                                             <div class="account-btn">
-                                                <a href="login" class="genric-btn primary medium" target="_blank">Login</a>
+                                                <a href="login" class="btn hero-btn">Login</a>
                                                 <span>|</span>
-                                                <a href="register" class="genric-btn success medium" target="_blank">Register</a>
+                                                <a href="register" class="btn hero-btn">Register</a>
                                             </div>
                                         </c:when>
                                         <c:otherwise>

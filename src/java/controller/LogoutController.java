@@ -21,10 +21,11 @@ public class LogoutController extends BaseAuthController {
     protected void processGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         session.invalidate();
-        response.sendRedirect("index");
+        response.sendRedirect("home");
     }
 
     @Override
-    protected void processPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
+    protected void processPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    }
 
 }

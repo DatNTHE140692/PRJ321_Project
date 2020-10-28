@@ -54,7 +54,7 @@ public class ContactController extends HttpServlet {
         Contact contact = new Contact(fullName, email, subject, message);
         ContactDAO cDB = new ContactDAO();
         boolean isAdded = cDB.insert(contact);
-        if(isAdded) {
+        if (isAdded) {
             response.sendRedirect("contact");
         }
 //        response.getWriter().println(fullName);

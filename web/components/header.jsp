@@ -65,6 +65,8 @@
                                                         <li>
                                                             <a class="account-btn">${sessionScope.account.fullname}</a>
                                                             <ul class="submenu">
+                                                                <li><a href="cart">Cart</a></li>
+                                                                <li><a href="checkout">Checkout</a></li>
                                                                 <li><a href="logout">Log Out!</a></li>
                                                             </ul>
                                                         </li>

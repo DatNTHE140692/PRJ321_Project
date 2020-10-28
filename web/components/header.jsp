@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+
 <!-- ? Preloader Start -->
 <div id="preloader-active">
     <div class="preloader d-flex align-items-center justify-content-center">
@@ -63,7 +65,7 @@
                                                 <nav>
                                                     <ul id="navigation">
                                                         <li>
-                                                            <a class="account-btn">${sessionScope.account.fullname}</a>
+                                                            <a class="account-btn"><span>${fn:substring(sessionScope.account.fullname, 0, 1)}</span> ${sessionScope.account.fullname}</a>
                                                             <ul class="submenu">
                                                                 <li><a href="cart">Cart</a></li>
                                                                 <li><a href="checkout">Checkout</a></li>

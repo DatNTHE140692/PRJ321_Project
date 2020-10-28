@@ -21,8 +21,8 @@
         <servlet-class>controller.HomeController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ShopController</servlet-name>
-        <servlet-class>controller.ShopController</servlet-class>
+        <servlet-name>StoreController</servlet-name>
+        <servlet-class>controller.StoreController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LogoutController</servlet-name>
@@ -65,8 +65,8 @@
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ShopController</servlet-name>
-        <url-pattern>/shop</url-pattern>
+        <servlet-name>StoreController</servlet-name>
+        <url-pattern>/store</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>

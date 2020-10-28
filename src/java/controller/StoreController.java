@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author #Panda
  */
-public class ShopController extends HttpServlet {
+public class StoreController extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

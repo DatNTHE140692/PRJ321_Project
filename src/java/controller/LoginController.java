@@ -51,7 +51,7 @@ public class LoginController extends HttpServlet {
         Account account = accountDB.getAccount(username, password);
         if (account != null) {
             request.getSession(true).setAttribute("account", account);
-            response.sendRedirect("index");
+            response.sendRedirect("");
         } else {
             response.getWriter().println("test");
         }

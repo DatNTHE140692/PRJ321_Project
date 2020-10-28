@@ -20,7 +20,7 @@
                                         <h1 data-animation="fadeInUp" data-delay=".4s" >Contact Us</h1>
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
+                                                <li class="breadcrumb-item"><a href="home">Home</a></li>
                                                 <li class="breadcrumb-item"><a href="#">Contact</a></li> 
                                             </ol>
                                         </nav>

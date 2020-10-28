@@ -30,7 +30,7 @@
                         <div class="main-menu d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="index">Home</a></li> 
+                                    <li><a href="home">Home</a></li> 
                                     <li><a href="shop">Product</a></li>
                                     <li><a href="contact">Contact</a></li>
                                 </ul>

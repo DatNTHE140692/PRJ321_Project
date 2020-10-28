@@ -311,7 +311,7 @@
                                 <!-- Button -->
                                 <div class="row justify-content-center">
                                     <div class="room-btn mt-20">
-                                        <a href="catagori.jsp" class="border-btn">Browse More</a>
+                                        <a href="store.jsp" class="border-btn">Browse More</a>
                                     </div>
                                 </div>
                             </div>

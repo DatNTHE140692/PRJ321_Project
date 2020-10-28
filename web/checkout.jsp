@@ -206,7 +206,7 @@
                                     </div>
                                     <div class="creat_account checkout-cap">
                                         <input type="checkbox" id="f-option8" name="selector" />
-                                        <label for="f-option8">I’ve read and accept the  <a href="#">terms & conditions*</a> </label>
+                                        <label for="f-option8">I've read and accept the  <a href="#">terms & conditions*</a> </label>
                                     </div>
                                     <a class="btn w-100" href="#">Proceed to Paypal</a>
                                 </div>

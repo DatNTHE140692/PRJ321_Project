@@ -42,24 +42,24 @@
                             <ul class="d-flex align-items-center">
                                 <li>
                                     <!-- Search Box -->
-                                    <form action="#" class="form-box f-right ">
-                                        <input type="text" name="Search" placeholder="Search products">
+                                    <form action="search" class="form-box f-right ">
+                                        <input type="text" name="search" placeholder="Search products">
                                         <div class="search-icon">
                                             <i class="ti-search"></i>
                                         </div>
                                     </form>
                                 </li>
                                 <li>
-                                    <c:choose>
-                                        <c:when test="${sessionScope.account eq null}">
-                                            <div class="account-btn">
-                                                <a href="login" class="btn hero-btn">Login</a>
-                                                <span>|</span>
-                                                <a href="register" class="btn hero-btn">Register</a>
-                                            </div>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <div class="main-menu d-none d-lg-block">
+                                    <div class="main-menu d-none d-lg-block">
+                                        <c:choose>
+                                            <c:when test="${sessionScope.account eq null}">
+                                                <div class="account-btn">
+                                                    <a href="login" class="btn hero-btn">Login</a>
+                                                    |
+                                                    <a href="register" class="btn hero-btn">Register</a>
+                                                </div>
+                                            </c:when>
+                                            <c:otherwise>
                                                 <nav>
                                                     <ul id="navigation">
                                                         <li>
@@ -70,9 +70,9 @@
                                                         </li>
                                                     </ul>
                                                 </nav>
-                                            </div>
-                                        </c:otherwise>
-                                    </c:choose>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </div>
                                 </li>
                                 <li>
                                     <div class="card-stor">

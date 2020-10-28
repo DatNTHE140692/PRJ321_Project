@@ -1,0 +1,89 @@
+<!-- ? Preloader Start -->
+<div id="preloader-active">
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-inner position-relative">
+            <div class="preloader-circle"></div>
+            <div class="preloader-img pere-text">
+                <img src="assets/img/logo/loder.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Preloader Start-->
+<header>
+    <!-- Header Start -->
+    <div class="header-area">
+        <div class="main-header header-sticky">
+            <div class="container-fluid">
+                <div class="row menu-wrapper align-items-center justify-content-between">
+                    <div class="header-left d-flex align-items-center">
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a href="index.jsp"><img src="assets/img/logo/logo.png" alt=""></a>
+                        </div>
+                        <!-- Logo-2 -->
+                        <div class="logo2">
+                            <a href="index.jsp"><img src="assets/img/logo/logo2.png" alt=""></a>
+                        </div>
+                        <!-- Main-menu -->
+                        <div class="main-menu  d-none d-lg-block">
+                            <nav>
+                                <ul id="navigation">
+                                    <li><a href="index.jsp">Home</a></li> 
+                                    <li><a href="product.jsp">Product</a></li>
+                                    <li><a href="about.jsp">About</a></li>
+                                    <li><a href="#">Page</a>
+                                        <ul class="submenu">
+                                            <li><a href="login.jsp">Login</a></li>
+                                            <li><a href="card.jsp">Card</a></li>
+                                            <li><a href="categories.jsp">Categories</a></li>
+                                            <li><a href="checkout.jsp">Checkout</a></li>
+                                            <li><a href="product_details.jsp">Product Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="blog.jsp">Blog</a>
+                                        <ul class="submenu">
+                                            <li><a href="blog.jsp">Blog</a></li>
+                                            <li><a href="blog_details.jsp">Blog Details</a></li>
+                                            <li><a href="elements.jsp">Elements</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contact">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>   
+                    </div>
+                    <div class="header-right1 d-flex align-items-center">
+                        <div class="search">
+                            <ul class="d-flex align-items-center">
+                                <li>
+                                    <!-- Search Box -->
+                                    <form action="#" class="form-box f-right ">
+                                        <input type="text" name="Search" placeholder="Search products">
+                                        <div class="search-icon">
+                                            <i class="ti-search"></i>
+                                        </div>
+                                    </form>
+                                </li>
+                                <li>
+                                    <a href="login.jsp" class="account-btn" target="_blank">My Account</a>
+                                </li>
+                                <li>
+                                    <div class="card-stor">
+                                        <img src="assets/img/icon/card.svg" alt="">
+                                        <span>0</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Mobile Menu -->
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+</header>

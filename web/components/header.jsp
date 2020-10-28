@@ -19,35 +19,18 @@
                     <div class="header-left d-flex align-items-center">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.jsp"><img src="assets/img/logo/logo.png" alt=""></a>
+                            <a href="index"><img src="assets/img/logo/logo.png" alt=""></a>
                         </div>
                         <!-- Logo-2 -->
                         <div class="logo2">
-                            <a href="index.jsp"><img src="assets/img/logo/logo2.png" alt=""></a>
+                            <a href="index"><img src="assets/img/logo/logo2.png" alt=""></a>
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu  d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="index.jsp">Home</a></li> 
-                                    <li><a href="product.jsp">Product</a></li>
-                                    <li><a href="about.jsp">About</a></li>
-                                    <li><a href="#">Page</a>
-                                        <ul class="submenu">
-                                            <li><a href="login.jsp">Login</a></li>
-                                            <li><a href="card.jsp">Card</a></li>
-                                            <li><a href="categories.jsp">Categories</a></li>
-                                            <li><a href="checkout.jsp">Checkout</a></li>
-                                            <li><a href="product_details.jsp">Product Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="blog.jsp">Blog</a>
-                                        <ul class="submenu">
-                                            <li><a href="blog.jsp">Blog</a></li>
-                                            <li><a href="blog_details.jsp">Blog Details</a></li>
-                                            <li><a href="elements.jsp">Elements</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="index">Home</a></li> 
+                                    <li><a href="shop">Product</a></li>
                                     <li><a href="contact">Contact</a></li>
                                 </ul>
                             </nav>
@@ -66,7 +49,7 @@
                                     </form>
                                 </li>
                                 <li>
-                                    <a href="login.jsp" class="account-btn" target="_blank">My Account</a>
+                                    <a href="login" class="account-btn" target="_blank">My Account</a>
                                 </li>
                                 <li>
                                     <div class="card-stor">

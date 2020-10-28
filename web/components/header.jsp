@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- ? Preloader Start -->
 <div id="preloader-active">
     <div class="preloader d-flex align-items-center justify-content-center">
@@ -26,7 +27,7 @@
                             <a href="index"><img src="assets/img/logo/logo2.png" alt=""></a>
                         </div>
                         <!-- Main-menu -->
-                        <div class="main-menu  d-none d-lg-block">
+                        <div class="main-menu d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="index">Home</a></li> 
@@ -49,7 +50,29 @@
                                     </form>
                                 </li>
                                 <li>
-                                    <a href="login" class="account-btn" target="_blank">My Account</a>
+                                    <c:choose>
+                                        <c:when test="${sessionScope.account eq null}">
+                                            <div class="account-btn">
+                                                <a href="login" class="genric-btn primary medium" target="_blank">Login</a>
+                                                <span>|</span>
+                                                <a href="register" class="genric-btn success medium" target="_blank">Register</a>
+                                            </div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <div class="main-menu d-none d-lg-block">
+                                                <nav>
+                                                    <ul id="navigation">
+                                                        <li>
+                                                            <a class="account-btn">${sessionScope.account.fullname}</a>
+                                                            <ul class="submenu">
+                                                                <li><a href="logout">Log Out!</a></li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </li>
                                 <li>
                                     <div class="card-stor">

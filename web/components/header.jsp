@@ -33,7 +33,7 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="home">Home</a></li> 
-                                    <li><a href="shop">Product</a></li>
+                                    <li><a href="store">Store</a></li>
                                     <li><a href="contact">Contact</a></li>
                                 </ul>
                             </nav>
@@ -65,7 +65,7 @@
                                                 <nav>
                                                     <ul id="navigation">
                                                         <li>
-                                                            <a class="account-btn"><span>${fn:substring(sessionScope.account.fullname, 0, 1)}</span> ${sessionScope.account.fullname}</a>
+                                                            <a class="account-btn">${sessionScope.account.fullname}</a>
                                                             <ul class="submenu">
                                                                 <li><a href="cart">Cart</a></li>
                                                                 <li><a href="checkout">Checkout</a></li>

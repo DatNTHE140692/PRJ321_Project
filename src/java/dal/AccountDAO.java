@@ -74,4 +74,26 @@ public class AccountDAO extends BaseDAO {
         }
         return isInserted;
     }
+
+    public boolean updateProfile(Account account) {
+        try {
+            String sql = "";
+            PreparedStatement st = connection.prepareStatement(sql);
+            return st.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    public boolean changePassword(String password) {
+        try {
+            String sql = "";
+            PreparedStatement st = connection.prepareStatement(sql);
+            return st.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 }

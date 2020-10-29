@@ -1,9 +1,3 @@
-<%-- 
-    Document   : profile
-    Created on : Oct 28, 2020, 6:47:15 PM
-    Author     : #Panda
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,6 +5,29 @@
     <body>
         <%@include file="components/header.jsp" %>
         <main>
+            <!--? slider Area Start-->
+            <div class="slider-area ">
+                <div class="slider-active">
+                    <div class="single-slider hero-overly2  slider-height2 d-flex align-items-center slider-bg2">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-8 col-md-8">
+                                    <div class="hero__caption hero__caption2">
+                                        <h1 data-animation="fadeInUp" data-delay=".4s" >My Profile</h1>
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="home">Home</a></li>
+                                                <li class="breadcrumb-item"><a href="#">My Profile</a></li> 
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- slider Area End-->
             <div class="category-area">
                 <div class="container">
                     <div class="row">

@@ -38,29 +38,20 @@
                         <div class="col-xl-7 col-lg-8 col-md-10">
                             <div class="section-tittle mb-50">
                                 <h2>Shop with us</h2>
-                                <p>Browse from 230 latest items</p>
+                                <p>Discover our Products</p>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <!--? Left content -->
-                        <div class="col-xl-3 col-lg-3 col-md-4 ">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="small-tittle mb-45">
-                                        <div class="ion"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="12px">
-                                            <path fill-rule="evenodd" fill="rgb(27, 207, 107)" d="M7.778,12.000 L12.222,12.000 L12.222,10.000 L7.778,10.000 L7.778,12.000 ZM-0.000,-0.000 L-0.000,2.000 L20.000,2.000 L20.000,-0.000 L-0.000,-0.000 ZM3.333,7.000 L16.667,7.000 L16.667,5.000 L3.333,5.000 L3.333,7.000 Z"></path>
-                                            </svg>
-                                        </div>
-                                        <h4>Filter Product</h4>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 ">
                             <!-- Job Category Listing start -->
                             <div class="category-listing mb-50">
-
                                 <div class="categories-wrapper">
                                     <div class="row">
+                                        <div class="small-tittle">
+                                            <h2><i class="fa fa-shopping-bag" aria-hidden="true"></i> Product Category</h2>
+                                        </div>
                                         <div class="col-12">
                                             <!-- Select State items start -->
                                             <div class="select-categories">
@@ -119,92 +110,12 @@
                                             <!--  Select km items End-->
                                         </div>
                                     </div>
-
-
-
                                 </div>
-
-                                <!-- Range Slider Start -->
-                                <div class="range-slider mt-50">
-                                    <div class="small-tittle small-tittle2">
-                                        <h4>Price Range</h4>
-                                    </div>
-                                    <div class="range_item">
-                                        <!-- <div id="slider-range"></div> -->
-                                        <input type="text" class="js-range-slider" value="" />
-                                        <div class="d-flex align-items-center">
-                                            <div class="price_text">
-                                                <p>Price :</p>
-                                            </div>
-                                            <div class="price_value d-flex justify-content-center">
-                                                <input type="text" class="js-input-from" id="amount" readonly />
-                                                <span>to</span>
-                                                <input type="text" class="js-input-to" id="amount" readonly />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Range Slider End -->
-
-                                <!-- Check box -->
-                                <div class="select-checkbox mt-30 mb-30">
-                                    <div class="small-tittle">
-                                        <h4>Latest Product</h4>
-                                    </div>
-                                    <label class="container">Any
-                                        <input type="checkbox" >
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">Today
-                                        <input type="checkbox" checked="checked active">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">Last 2 days
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">Last 5 days
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">Last 10 days
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">Last 15 days
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <!-- Check box /-->
                             </div>
                             <!-- Job Category Listing End -->
                         </div>
                         <!--?  Right content -->
-                        <div class="col-xl-9 col-lg-9 col-md-8 ">
-                            <!-- Count of Job list Start -->
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="count-job mb-35">
-                                        <span>39, 782 Product found</span>
-                                        <!-- Select job items start -->
-                                        <div class="select-cat">
-                                            <span>Sort by</span>
-                                            <select name="select"> 
-                                                <option value="">Sofa</option>
-                                                <option value="">Table</option>
-                                                <option value="">Chair</option>
-                                                <option value="">Bead</option>
-                                                <option value="">Lightning</option>
-                                                <option value="">Decore</option>
-                                            </select>
-                                        </div>
-                                        <!--  Select job items End-->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Count of Job list End -->
-
+                        <div class="col-xl-8 col-lg-8 col-md-8 ">
                             <!--? New Arrival Start -->
                             <div class="new-arrival new-arrival3">
                                 <div class="row">

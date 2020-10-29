@@ -53,7 +53,7 @@
                                                 <nav>
                                                     <ul id="navigation">
                                                         <li>
-                                                            <a class="account-btn">${sessionScope.account.fullname}</a>
+                                                            <a class="account-btn"><img src="${sessionScope.account.avatarURL}" width="35" height="35" /> ${sessionScope.account.fullname}</a>
                                                             <ul class="submenu">
                                                                 <li><a href="profile">My Profile</a></li>
                                                                 <li><a href="change-password">Change Password</a></li>

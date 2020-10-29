@@ -50,17 +50,18 @@ public class RegisterController extends HttpServlet {
         String email = request.getParameter("email").trim();
         String fullname = request.getParameter("fullname").trim();
         String address = request.getParameter("address").trim();
-        String phonenumber = request.getParameter("phonenumber").trim();
-        Account account = new Account(username, password, email, fullname, address, phonenumber);
-        AccountDAO rDB = new AccountDAO();
-        if (rDB.isAccountExisted(account)) {
-            response.getWriter().println("<script>alert('Username or Email Existed!')</script>");
-        } else {
-            if (rDB.insert(account)) {
-                response.getWriter().println("<script>alert('Registered Success!')</script>");
-            } else {
-                response.getWriter().println("<script>alert('Register Failed!')</script>");
-            }
+        String phonenumber = request.getParameter("phone").trim();
+        Account account = new Account();
+        account.setFullname(fullname);
+        account.setUsername(username);
+        account.setPassword(password);
+        account.setEmail(email);
+        account.setPhonenumber(phonenumber);
+        account.setAddress(address);
+        AccountDAO accountDB = new AccountDAO();
+        boolean isInserted = accountDB.insert(account);
+        if (isInserted) {
+            response.sendRedirect("login");
         }
     }
 

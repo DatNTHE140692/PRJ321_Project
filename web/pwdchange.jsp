@@ -46,13 +46,13 @@
                                                 <input type="password" name="new-password" id="new-password" placeholder="New Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'New Password'" required class="single-input" onkeyup="onTypingPassword()">
                                             </div>
                                             <div class="mt-10">
-                                                <label for="password">Re-New Password : </label>
-                                                <input type="password" name="new-password" id="renew-password" placeholder="ReNew Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ReNew Password'" required class="single-input" onkeyup="onTypingPassword()">
+                                                <label for="password">Re-Enter New Password : </label>
+                                                <input type="password" name="new-password" id="renew-password" placeholder="New Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ReNew Password'" required class="single-input" onkeyup="onTypingPassword()">
                                             </div>
                                             <div class="mt-10" id="message"></div>
                                         </div>
                                         <div class="mt-20">
-                                            <input type="submit" value="Change Password" class="btn hero-btn" />
+                                            <input type="submit" value="Change Password" class="btn hero-btn" id="submit" />
                                         </div>
                                     </form> 
                                 </div>
@@ -68,13 +68,16 @@
                 const password = document.getElementById('new-password');
                 const repassword = document.getElementById('renew-password');
                 const message = document.getElementById('message');
+                const submit = document.getElementById('submit');
                 if (password.value === '' && repassword.value === '') {
                     message.innerText = '';
                 } else {
                     if (password.value !== repassword.value) {
                         message.innerText = "Password & RePassword are not the same!";
+                        submit.setAttribute('disabled', '');
                     } else {
                         message.innerText = "";
+                        submit.removeAttribute('disabled');
                     }
                 }
             }

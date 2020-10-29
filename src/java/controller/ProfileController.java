@@ -5,10 +5,12 @@
  */
 package controller;
 
+import dal.AccountDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Account;
 
 /**
  *
@@ -42,6 +44,24 @@ public class ProfileController extends BaseAuthController {
     @Override
     protected void processPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String avatarURL = request.getParameter("avatar");
+        String name = request.getParameter("name");
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+        Account account = (Account) request.getSession(false).getAttribute("account");
+        account.setAvatarURL(avatarURL);
+        account.setFullname(name);
+        account.setUsername(username);
+        account.setAddress(address);
+        account.setEmail(email);
+        account.setPhonenumber(phone);
+        AccountDAO accountDB = new AccountDAO();
+        boolean isUpdated = accountDB.updateProfile(account);
+        if (isUpdated) {
+            processGet(request, response);
+        }
     }
 
     /**

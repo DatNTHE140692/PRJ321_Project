@@ -35,9 +35,16 @@
                             <div class="category-listing">
                                 <div class="categories-wrapper">
                                     <div class="small-tittle">
-                                        <h2><i class="fa fa-address-card" aria-hidden="true"></i> User Profile</h2>
+                                        <h1><i class="fa fa-address-card" aria-hidden="true"></i> User Profile</h1>
+                                    </div>
+                                    <div class="text-center">
+                                        <img src="${sessionScope.account.avatarURL}" alt="avatar" width="250" height="250" />
                                     </div>
                                     <form action="profile" method="post">
+                                        <div class="mt-20">
+                                            <label for="name">Avatar URL: </label>
+                                            <input type="text" name="avatar" placeholder="Your avatar" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your avatar'" class="single-input" value="${sessionScope.account.avatarURL}">
+                                        </div>
                                         <div class="mt-20">
                                             <label for="name">Your name : </label>
                                             <input type="text" name="name" placeholder="Your Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your name'" required class="single-input" value="${sessionScope.account.fullname}">
@@ -49,6 +56,10 @@
                                         <div class="mt-20">
                                             <label for="name">Email : </label>
                                             <input type="email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required class="single-input" value="${sessionScope.account.email}">
+                                        </div>
+                                        <div class="mt-20">
+                                            <label for="name">Phone Number : </label>
+                                            <input type="text" name="phone" placeholder="Phone Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'" required class="single-input" value="${sessionScope.account.phonenumber}">
                                         </div>
                                         <div class="mt-20">
                                             <label for="name">Address : </label>

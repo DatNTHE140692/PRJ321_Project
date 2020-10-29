@@ -44,70 +44,37 @@
                     </div>
                     <div class="row">
                         <!--? Left content -->
-                        <div class="col-xl-4 col-lg-4 col-md-4 ">
+                        <div class="col-xl-3 col-lg-3 col-md-3">
+                            <!-- Job Search start -->
+                            <div class="category-listing mb-50">
+                                <div class="categories-wrapper">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="small-tittle">
+                                                <h2><i class="fa fa-search" aria-hidden="true"></i> Search Product</h2>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <form action="search">
+                                                <input type="text" name="keyword" class="col-8"/>
+                                                <button class="genric-btn info-border search-icon col-4"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Job Search End -->
                             <!-- Job Category Listing start -->
                             <div class="category-listing mb-50">
                                 <div class="categories-wrapper">
                                     <div class="row">
-                                        <div class="small-tittle">
-                                            <h2><i class="fa fa-shopping-bag" aria-hidden="true"></i> Product Category</h2>
-                                        </div>
                                         <div class="col-12">
-                                            <!-- Select State items start -->
-                                            <div class="select-categories">
-                                                <select name="select1"> 
-                                                    <option value="">Type</option>
-                                                    <option value="">Sofa</option>
-                                                    <option value="">Table</option>
-                                                    <option value="">Chair</option>
-                                                    <option value="">Bead</option>
-                                                    <option value="">Lightning</option>
-                                                    <option value="">Decore</option>
-                                                </select>
+                                            <div class="small-tittle">
+                                                <h2><i class="fa fa-bars" aria-hidden="true"></i> Product Category</h2>
                                             </div>
-                                            <!--  Select State items End-->
                                         </div>
-                                        <div class="col-12">
-                                            <!-- Select km items start -->
-                                            <div class="select-categories">
-                                                <select name="select2">
-                                                    <option value="">Size</option>
-                                                    <option value="">2.2ft</option>
-                                                    <option value="">5.5ft</option>
-                                                    <option value="">8.2ft</option>
-                                                    <option value="">10.2ft</option>
-                                                </select>
-                                            </div>
-                                            <!--  Select km items End-->
-                                        </div>
-                                        <div class="col-12">
-                                            <!-- Select km items start -->
-                                            <div class="select-categories">
-                                                <select name="select3">
-                                                    <option value="">Color</option>
-                                                    <option value="">Whit</option>
-                                                    <option value="">Green</option>
-                                                    <option value="">Blue</option>
-                                                    <option value="">Sky Blue</option>
-                                                    <option value="">Gray</option>
-                                                </select>
-                                            </div>
-                                            <!--  Select km items End-->
-                                        </div>
-                                        <div class="col-12">
-                                            <!-- Select km items start -->
-                                            <div class="select-categories">
-                                                <select name="select4">
-                                                    <option value="">Price range</option>
-                                                    <option value="">$10 to $20</option>
-                                                    <option value="">$20 to $30</option>
-                                                    <option value="">$50 to $80</option>
-                                                    <option value="">$100 to $120</option>
-                                                    <option value="">$200 to $300</option>
-                                                    <option value="">$500 to $600</option>
-                                                </select>
-                                            </div>
-                                            <!--  Select km items End-->
+                                        <div class="col-12 mt-20">
+                                            Test
                                         </div>
                                     </div>
                                 </div>
@@ -115,7 +82,7 @@
                             <!-- Job Category Listing End -->
                         </div>
                         <!--?  Right content -->
-                        <div class="col-xl-8 col-lg-8 col-md-8 ">
+                        <div class="col-xl-9 col-lg-9 col-md-9">
                             <!--? New Arrival Start -->
                             <div class="new-arrival new-arrival3">
                                 <div class="row">

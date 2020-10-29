@@ -17,14 +17,16 @@ public class Account {
     private String fullname;
     private String address;
     private String phonenumber;
+    private String avatarURL;
 
-    public Account(String username, String password, String email, String fullname, String address, String phonenumber) {
+    public Account(String username, String password, String email, String fullname, String address, String phonenumber, String avatarURL) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.fullname = fullname;
         this.address = address;
         this.phonenumber = phonenumber;
+        this.avatarURL = avatarURL;
     }
 
     public Account() {
@@ -76,6 +78,14 @@ public class Account {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAvatarURL() {
+        return avatarURL;
+    }
+
+    public void setAvatarURL(String avatarURL) {
+        this.avatarURL = avatarURL;
     }
 
 }

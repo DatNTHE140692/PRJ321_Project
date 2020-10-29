@@ -33,6 +33,7 @@ public class AccountDAO extends BaseDAO {
                 account.setAddress(rs.getString("address"));
                 account.setEmail(rs.getString("email"));
                 account.setPhonenumber(rs.getString("phonenumber"));
+                account.setAvatarURL(rs.getString("avatarURL"));
                 return account;
             }
         } catch (SQLException ex) {
@@ -58,9 +59,8 @@ public class AccountDAO extends BaseDAO {
     }
 
     public boolean insert(Account account) {
-        boolean isInserted = false;
         try {
-            String sql = "INSERT INTO dbo.Account (username, password, fullname, email, address, phonenumber) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO dbo.Account (username, password, fullname, email, address, phonenumber, avatarURL) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, account.getUsername());
             st.setString(2, account.getPassword());
@@ -68,17 +68,27 @@ public class AccountDAO extends BaseDAO {
             st.setString(4, account.getEmail());
             st.setString(5, account.getAddress());
             st.setString(6, account.getPhonenumber());
-            isInserted = st.executeUpdate() > 0;
+            st.setString(7, account.getAvatarURL());
+            return st.executeUpdate() > 0;
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return isInserted;
+        return false;
     }
 
     public boolean updateProfile(Account account) {
         try {
-            String sql = "";
+            String sql = "UPDATE dbo.Account SET fullname = ?, email = ?, address = ?, phonenumber = ?, avatarURL = ? WHERE username LIKE ?";
             PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, account.getFullname());
+            st.setString(2, account.getEmail());
+            st.setString(3, account.getAddress());
+            st.setString(4, account.getPhonenumber());
+            if (account.getAvatarURL().trim().isEmpty()) {
+                account.setAvatarURL("assets/img/icon/avatar.png");
+            }
+            st.setString(5, account.getAvatarURL());
+            st.setString(6, account.getUsername());
             return st.executeUpdate() > 0;
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,14 +96,18 @@ public class AccountDAO extends BaseDAO {
         return false;
     }
 
-    public boolean changePassword(String password) {
+    public boolean changePassword(String userName, String oldPassword, String newPassword) {
         try {
-            String sql = "";
+            String sql = "UPDATE dbo.Account SET password = ? WHERE username LIKE ? AND password LIKE ?";
             PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, newPassword);
+            st.setString(2, userName);
+            st.setString(3, oldPassword);
             return st.executeUpdate() > 0;
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
+
 }

@@ -22,7 +22,7 @@
                                         <div class="mt-20" id="change-pass">
                                             <div class="mt-10">
                                                 <label for="password">Old Password : </label>
-                                                <input type="password" name="old-password" id="old-password" placeholder="Old Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'New Password'" required class="single-input" onkeyup="onTypingPassword()">
+                                                <input type="password" name="old-password" id="old-password" placeholder="Old Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Old Password'" required class="single-input" onkeyup="onTypingPassword()">
                                             </div>
                                             <div class="mt-10">
                                                 <label for="password">New Password : </label>
@@ -30,7 +30,7 @@
                                             </div>
                                             <div class="mt-10">
                                                 <label for="password">Re-New Password : </label>
-                                                <input type="password" name="new-password" id="renew-password" placeholder="New Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'New Password'" required class="single-input" onkeyup="onTypingPassword()">
+                                                <input type="password" name="new-password" id="renew-password" placeholder="ReNew Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ReNew Password'" required class="single-input" onkeyup="onTypingPassword()">
                                             </div>
                                             <div class="mt-10" id="message"></div>
                                         </div>
@@ -55,9 +55,9 @@
                     message.innerText = '';
                 } else {
                     if (password.value !== repassword.value) {
-                        message.innerText = "Incorrect";
+                        message.innerText = "Password & RePassword are not the same!";
                     } else {
-                        message.innerText = "Correct";
+                        message.innerText = "";
                     }
                 }
             }

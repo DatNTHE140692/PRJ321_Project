@@ -35,7 +35,7 @@
                                         </div>
                                         <div class="mt-20">
                                             <label for="name">Address : </label>
-                                            <input type="text" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" required class="single-input" value="${sessionScope.account.password}">
+                                            <input type="text" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" required class="single-input" value="${sessionScope.account.address}">
                                         </div>
                                         <div class="mt-20">
                                             <input type="submit" value="Save" class="btn hero-btn" />

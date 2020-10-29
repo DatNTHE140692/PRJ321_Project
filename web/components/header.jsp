@@ -55,7 +55,7 @@
                                                         <li>
                                                             <a class="account-btn">${sessionScope.account.fullname}</a>
                                                             <ul class="submenu">
-                                                                <li><a href="profile">Profile</a></li>
+                                                                <li><a href="profile">My Profile</a></li>
                                                                 <li><a href="change-password">Change Password</a></li>
                                                                 <li><a href="cart">Cart</a></li>
                                                                 <li><a href="logout">Log Out!</a></li>

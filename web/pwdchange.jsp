@@ -35,7 +35,7 @@
                                             <div class="mt-10" id="message"></div>
                                         </div>
                                         <div class="mt-20">
-                                            <input type="submit" value="Change" class="btn hero-btn" />
+                                            <input type="submit" value="Change Password" class="btn hero-btn" />
                                         </div>
                                     </form> 
                                 </div>

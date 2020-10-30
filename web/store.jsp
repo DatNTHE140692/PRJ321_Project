@@ -55,9 +55,9 @@
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <form action="search">
-                                                <input type="text" name="keyword" class="col-8"/>
-                                                <button class="genric-btn info-border search-icon col-4"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                            <form action="search" class="row">
+                                                <input type="text" name="keyword" class="col-9"/>
+                                                <button class="col-3"><i class="fa fa-search" aria-hidden="true"></i></button>
                                             </form>
                                         </div>
                                     </div>

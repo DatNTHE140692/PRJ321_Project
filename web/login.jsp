@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html class="no-js" lang="vi">
     <!-- head tag import Start -->
@@ -39,6 +40,11 @@
                                         <label>Password:</label>
                                         <input type="password" name="password" placeholder="Enter Password">
                                     </div>
+                                    <c:if test="${requestScope.errorMsg ne null}">
+                                        <div class="single-input-fields">
+                                            <label for="incorrect" style="color: red">${requestScope.errorMsg}</label>
+                                        </div>
+                                    </c:if>
                                 </div>
                                 <!-- form Footer -->
                                 <div class="login-footer">

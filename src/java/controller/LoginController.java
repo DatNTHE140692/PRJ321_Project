@@ -53,7 +53,9 @@ public class LoginController extends HttpServlet {
             request.getSession(true).setAttribute("account", account);
             response.sendRedirect("home");
         } else {
-            response.getWriter().println("test");
+            String errorMsg = "Username/Password incorrect!";
+            request.setAttribute("errorMsg", errorMsg);
+            doGet(request, response);
         }
     }
 

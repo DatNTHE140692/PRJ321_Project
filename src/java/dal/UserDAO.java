@@ -43,7 +43,6 @@ public class UserDAO extends BaseDAO {
     }
 
     public boolean isAccountExisted(User user) {
-        boolean isExisted = false;
         try {
             String sql = "SELECT * FROM dbo.Users WHERE username LIKE ? OR email LIKE ? OR phonenumber LIKE ?";
             PreparedStatement st = connection.prepareStatement(sql);
@@ -51,11 +50,11 @@ public class UserDAO extends BaseDAO {
             st.setString(2, user.getEmail());
             st.setString(3, user.getPhonenumber());
             ResultSet rs = st.executeQuery();
-            isExisted = rs.next();
+            return rs.next();
         } catch (SQLException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return isExisted;
+        return false;
     }
 
     public boolean insert(User user) {

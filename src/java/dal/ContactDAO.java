@@ -18,18 +18,17 @@ import model.Contact;
 public class ContactDAO extends BaseDAO {
 
     public boolean insert(Contact contact) {
-        boolean isInserted = false;
         try {
-            String sql = "INSERT INTO dbo.Contact(fullName, email, subject, message) VALUES(?,?,?,?)";
+            String sql = "INSERT INTO dbo.Contact(fullname, email, subject, message) VALUES(?,?,?,?)";
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, contact.getFullName());
             st.setString(2, contact.getEmail());
             st.setString(3, contact.getSubject());
             st.setString(4, contact.getMessage());
-            isInserted = st.executeUpdate() > 0;
+            return st.executeUpdate() > 0;
         } catch (SQLException ex) {
             Logger.getLogger(ContactDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return isInserted;
+        return false;
     }
 }

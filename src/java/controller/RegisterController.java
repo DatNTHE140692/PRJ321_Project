@@ -5,13 +5,13 @@
  */
 package controller;
 
-import dal.AccountDAO;
+import dal.UserDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Account;
+import model.User;
 
 /**
  *
@@ -51,14 +51,14 @@ public class RegisterController extends HttpServlet {
         String fullname = request.getParameter("fullname").trim();
         String address = request.getParameter("address").trim();
         String phonenumber = request.getParameter("phone").trim();
-        Account account = new Account();
+        User account = new User();
         account.setFullname(fullname);
         account.setUsername(username);
         account.setPassword(password);
         account.setEmail(email);
         account.setPhonenumber(phonenumber);
         account.setAddress(address);
-        AccountDAO accountDB = new AccountDAO();
+        UserDAO accountDB = new UserDAO();
         boolean isInserted = accountDB.insert(account);
         if (isInserted) {
             response.sendRedirect("login");

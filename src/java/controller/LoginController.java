@@ -5,13 +5,13 @@
  */
 package controller;
 
-import dal.AccountDAO;
+import dal.UserDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Account;
+import model.User;
 
 /**
  *
@@ -47,8 +47,8 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        AccountDAO accountDB = new AccountDAO();
-        Account account = accountDB.getAccount(username, password);
+        UserDAO accountDB = new UserDAO();
+        User account = accountDB.getAccount(username, password);
         if (account != null) {
             request.getSession(true).setAttribute("account", account);
             response.sendRedirect("home");

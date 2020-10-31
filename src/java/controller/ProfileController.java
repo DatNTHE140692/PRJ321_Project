@@ -5,12 +5,12 @@
  */
 package controller;
 
-import dal.AccountDAO;
+import dal.UserDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Account;
+import model.User;
 
 /**
  *
@@ -50,14 +50,14 @@ public class ProfileController extends BaseAuthController {
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
-        Account account = (Account) request.getSession(false).getAttribute("account");
+        User account = (User) request.getSession(false).getAttribute("account");
         account.setAvatarURL(avatarURL);
         account.setFullname(name);
         account.setUsername(username);
         account.setAddress(address);
         account.setEmail(email);
         account.setPhonenumber(phone);
-        AccountDAO accountDB = new AccountDAO();
+        UserDAO accountDB = new UserDAO();
         boolean isUpdated = accountDB.updateProfile(account);
         if (isUpdated) {
             processGet(request, response);

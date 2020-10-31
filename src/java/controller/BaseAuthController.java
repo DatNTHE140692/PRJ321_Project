@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Account;
+import model.User;
 
 /**
  *
@@ -21,7 +21,7 @@ public abstract class BaseAuthController extends HttpServlet {
 
     private boolean isAccessGranted(HttpServletRequest request) throws ServletException, IOException {
         HttpSession session = request.getSession(true);
-        Account account = (Account) session.getAttribute("account");
+        User account = (User) session.getAttribute("account");
         return account != null;
     }
 

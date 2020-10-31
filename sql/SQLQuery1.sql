@@ -2,29 +2,50 @@ CREATE DATABASE Furniture
 GO
 USE Furniture
 GO
-CREATE TABLE Contact 
+CREATE TABLE Users
 (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	fullName VARCHAR(150) NOT NULL,
-	email VARCHAR(150) NOT NULL,
-	[subject] VARCHAR(150) NOT NULL,
-	[message] VARCHAR(max) NOT NULL
-)
-
-CREATE TABLE Account 
-(
-	id INT IDENTITY(1,1),
-	username VARCHAR(150) NOT NULL,
+	uid INT IDENTITY(1,1) PRIMARY KEY,
+	username VARCHAR(150) NOT NULL UNIQUE,
 	[password] VARCHAR(150) NOT NULL,
 	fullname VARCHAR(150) NOT NULL,
-	email VARCHAR(150) NOT NULL,
+	email VARCHAR(150) NOT NULL UNIQUE,
 	address VARCHAR(150) NOT NULL,
-	phonenumber VARCHAR(150) NOT NULL,
-	PRIMARY KEY(id, username, email, phonenumber)
+	phonenumber VARCHAR(150) NOT NULL UNIQUE,
+	avatarURL VARCHAR(MAX),
 )
-INSERT INTO dbo.Contact(fullName, email, subject, message) VALUES(?,?,?,?)
-SELECT * FROM dbo.Contact
-DROP TABLE dbo.Account
-INSERT INTO dbo.Account (username, password, fullname, email, address, phonenumber) VALUES (?, ?, ?, ?, ?, ?)
-SELECT * FROM dbo.Account WHERE username LIKE '1' OR email LIKE 'admin@admin.test' OR phonenumber LIKE ''
-SELECT * FROM dbo.Account WHERE username LIKE 'admin' AND password LIKE 'admin'
+
+CREATE TABLE Categories
+(
+	cid INT IDENTITY(1, 1) PRIMARY KEY,
+	cname VARCHAR(150) NOT NULL
+)
+
+CREATE TABLE Products
+(
+	pid INT IDENTITY(1, 1) PRIMARY KEY,
+	pname VARCHAR(MAX) NOT NULL,
+	[pshortdesc] VARCHAR(MAX) NOT NULL,
+	[pdesc] VARCHAR(MAX) NOT NULL,
+	[pspec] VARCHAR(MAX) NOT NULL
+)
+
+CREATE TABLE Product_Categories
+(
+	cid INT FOREIGN KEY REFERENCES dbo.Categories(cid),
+	pid INT FOREIGN KEY REFERENCES dbo.Products(pid),
+	PRIMARY KEY(cid, pid)
+)
+
+CREATE TABLE Product_Images
+(
+	pid INT FOREIGN KEY REFERENCES dbo.Products(pid),
+	imageURL VARCHAR(MAX) NOT NULL,
+)
+
+CREATE TABLE Product_Comments 
+(
+	uid INT FOREIGN KEY REFERENCES dbo.Users(uid),
+	pid INT FOREIGN KEY REFERENCES dbo.Products(pid),
+	comment VARCHAR(MAX) NOT NULL,
+	PRIMARY KEY(uid, pid)
+)

@@ -9,7 +9,7 @@ package model;
  *
  * @author #Panda
  */
-public class Account {
+public class User {
 
     private String username;
     private String password;
@@ -19,7 +19,7 @@ public class Account {
     private String phonenumber;
     private String avatarURL;
 
-    public Account(String username, String password, String email, String fullname, String address, String phonenumber, String avatarURL) {
+    public User(String username, String password, String email, String fullname, String address, String phonenumber, String avatarURL) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -29,7 +29,7 @@ public class Account {
         this.avatarURL = avatarURL;
     }
 
-    public Account() {
+    public User() {
     }
 
     public String getFullname() {

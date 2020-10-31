@@ -5,13 +5,13 @@
  */
 package controller;
 
-import dal.AccountDAO;
+import dal.UserDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Account;
+import model.User;
 
 /**
  *
@@ -29,8 +29,8 @@ public class ChangePasswordController extends BaseAuthController {
         HttpSession session = request.getSession();
         String oldPass = request.getParameter("old-password");
         String newPass = request.getParameter("new-password");
-        AccountDAO accountDB = new AccountDAO();
-        Account account = (Account) session.getAttribute("account");
+        UserDAO accountDB = new UserDAO();
+        User account = (User) session.getAttribute("account");
         boolean isUpdated = accountDB.changePassword(account.getUsername(), oldPass, newPass);
         if (isUpdated) {
             session.invalidate();

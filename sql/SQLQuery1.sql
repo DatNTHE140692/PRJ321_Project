@@ -24,9 +24,10 @@ CREATE TABLE Products
 (
 	pid INT IDENTITY(1, 1) PRIMARY KEY,
 	pname VARCHAR(MAX) NOT NULL,
+	price FLOAT NOT NULL,
 	[pshortdesc] VARCHAR(MAX) NOT NULL,
 	[pdesc] VARCHAR(MAX) NOT NULL,
-	[pspec] VARCHAR(MAX) NOT NULL
+	available BIT NOT NULL, 
 )
 
 CREATE TABLE Product_Categories
@@ -48,4 +49,13 @@ CREATE TABLE Product_Comments
 	pid INT FOREIGN KEY REFERENCES dbo.Products(pid),
 	comment VARCHAR(MAX) NOT NULL,
 	PRIMARY KEY(uid, pid)
+)
+
+CREATE TABLE Contact 
+(
+	ctid INT IDENTITY(1,1) PRIMARY KEY,
+	fullname VARCHAR(150) NOT NULL,
+	email VARCHAR(150) NOT NULL,
+	[subject] VARCHAR(150) NOT NULL,
+	[message] VARCHAR(max) NOT NULL
 )

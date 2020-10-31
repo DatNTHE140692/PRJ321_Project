@@ -77,7 +77,7 @@
                                             <ul class="unordered-list">
                                                 <c:forEach items="${requestScope.categories}" var="c">
                                                     <li><a href="?cid=${c.id}" style="color: black">${c.name}</a></li>
-                                                </c:forEach>
+                                                    </c:forEach>
                                             </ul>
                                         </div>
                                     </div>

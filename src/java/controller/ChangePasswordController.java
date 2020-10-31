@@ -32,13 +32,8 @@ public class ChangePasswordController extends BaseAuthController {
         UserDAO accountDB = new UserDAO();
         User account = (User) session.getAttribute("account");
         boolean isUpdated = accountDB.changePassword(account.getUsername(), oldPass, newPass);
-        String errorMsg;
-        if (isUpdated) {
-            session.invalidate();
-            errorMsg = "Password Changed Successfully!";
-        } else {
-            errorMsg = "Failed to Change Password!";
-        }
+        String errorMsg = isUpdated ? "Password Changed Successfully!" : "Failed to Change Password!";
+        request.setAttribute("errorMsg", errorMsg);
         processGet(request, response);
     }
 

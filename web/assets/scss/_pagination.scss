@@ -71,20 +71,20 @@
 
 // breadcrumb
 .page-notification {
-	background: #EFF5F8;
+    background: #EFF5F8;
     padding: 13px 0;
     margin-bottom: 95px;
     @media #{$sm}{
         margin-bottom: 50px;
         margin-top: 9px;
-     }
+    }
     @media #{$xs}{
         margin-bottom: 30px;
         margin-top: 9px;
-     }
-     &.page-notification2{
+    }
+    &.page-notification2{
         margin-bottom: 0;
-     }
+    }
 }
 .breadcrumb {
     background: none;
@@ -99,11 +99,11 @@
     }
 }
 .breadcrumb-item + .breadcrumb-item::before {
-	display: inline-block;
-	color: #fff;
-	content: ">";
-	font-size: 17px;
-	line-height: 1;
+    display: inline-block;
+    color: #fff;
+    content: ">";
+    font-size: 17px;
+    line-height: 1;
     padding: 0 4px;
     padding-right: 8px;
 }

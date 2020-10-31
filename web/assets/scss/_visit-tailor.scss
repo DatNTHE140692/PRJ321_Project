@@ -3,13 +3,13 @@
     display: flex;
     align-items: center;
     @media #{$md}{
-      display: block;
+        display: block;
     }
     @media #{$xs}{
-      display: block;
+        display: block;
     }
     @media #{$sm}{
-      display: block;
+        display: block;
     }
     // left Contents
     .tailor-details{
@@ -80,10 +80,10 @@
         background-position: center center;
         height: 570px;
         width: 55%;
-         @media #{$lg}{
+        @media #{$lg}{
             width: 49%;
         }
-         @media #{$xs}{
+        @media #{$xs}{
             width: 100%;
             height: 500px;
         }

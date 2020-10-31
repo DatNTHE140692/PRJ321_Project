@@ -2,8 +2,8 @@
 .header-area{
     background: #F2E1D9;
     .main-header{
-       padding-left: 270px;
-       padding-right: 50px;
+        padding-left: 270px;
+        padding-right: 50px;
         @media #{$laptop}{
             padding-left: 165px;
             padding-right: 50px;
@@ -19,8 +19,8 @@
 
 
         // Responsive Mobile Device Header
-       @media #{$md}{
-        padding: 20px 20px;
+        @media #{$md}{
+            padding: 20px 20px;
         }
         @media #{$sm}{
             padding: 20px 20px;
@@ -70,7 +70,7 @@
                     width: 100px;
                 }
             }
-          
+
         }
         .logo2 {
             position: absolute;
@@ -89,7 +89,7 @@
                     width: 53px;
                 }
             }
-            
+
         }
         // Menu
         .main-menu{
@@ -174,7 +174,7 @@
                         z-index: -1;
                         overflow: hidden;
                         @include transition(.3s);
-                        
+
                     }
                 }
             }
@@ -277,7 +277,7 @@
                 padding: 7px 10px;
             }
             // Dropdown Menu button Padding None
-        .slicknav_item a {
+            .slicknav_item a {
                 padding: 0 !important;
             }
         }
@@ -337,7 +337,7 @@
             top: 50%;
             right: 0;
             transform: translateY(-50%);
-            
+
             i{
                 color: #010A44;
                 cursor: pointer;
@@ -389,7 +389,7 @@
         z-index: 2;
         right: 13px;
     }
-    
+
     .card-stor {
         background: #9F78FF;
         padding: 8px 20px;
@@ -410,9 +410,9 @@
 
 
 .account-btn {
-	padding: 0 44px;
-	color: #010A44;
-	font-size: 14px;
+    padding: 0 44px;
+    color: #010A44;
+    font-size: 14px;
     font-weight: 600;
     &:hover{
         color:$theme-color;
@@ -426,5 +426,5 @@
     @media #{$xs}{
         padding: 0 15px;
     }
-   
+
 }

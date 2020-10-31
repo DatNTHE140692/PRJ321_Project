@@ -49,7 +49,11 @@
                                                 <label for="password">Re-Enter New Password : </label>
                                                 <input type="password" name="new-password" id="renew-password" placeholder="New Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ReNew Password'" required class="single-input" onkeyup="onTypingPassword()">
                                             </div>
-                                            <div class="mt-10" id="message"></div>
+                                            <c:if test="${requestScope.errorMsg ne null}">
+                                                <div class="mt-10">
+                                                    <label for="message" style="color: red">${requestScope.errorMsg}</label>
+                                                </div>
+                                            </c:if>
                                         </div>
                                         <div class="mt-20">
                                             <input type="submit" value="Change Password" class="btn hero-btn" id="submit" />

@@ -80,7 +80,7 @@
         ul{
             li{
                 margin-bottom: 15px;
-                 a{
+                a{
                     color: #C2C5DB;
                     font-weight: 300;
                     font-size: 14px;
@@ -91,7 +91,7 @@
                         // padding-left: 3px;
                         text-decoration: underline;
                     }
-                   
+
                 }
             }
         }
@@ -155,7 +155,7 @@
                 &:hover{
                     // color: #C2C5DB;
                 }
-                 
+
             }
         }
     }
@@ -188,12 +188,12 @@
         }
         i{
             @include transition(.4s);
-                display:inline-block;
-                transform: rotateY(0deg);
-                -webkit-transform: rotateY(0deg);
-                -moz-transform: rotateY(0deg);
-                -ms-transform: rotateY(0deg);
-                -o-transform: rotateY(0deg);
+            display:inline-block;
+            transform: rotateY(0deg);
+            -webkit-transform: rotateY(0deg);
+            -moz-transform: rotateY(0deg);
+            -ms-transform: rotateY(0deg);
+            -o-transform: rotateY(0deg);
         }
     }
 }

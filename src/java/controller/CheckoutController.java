@@ -28,7 +28,7 @@ public class CheckoutController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {  
+            throws ServletException, IOException {
         request.getRequestDispatcher("checkout.jsp").forward(request, response);
     }
 

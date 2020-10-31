@@ -30,7 +30,7 @@
     &.new-arrival3{
         padding-top: 0;
         padding-bottom: 0;
-      
+
     }
     .single-new-arrival{
         border: 1px solid #F6F8FE;
@@ -39,8 +39,8 @@
             position: relative;
             img {
                 width:100%;
-               }
-           }
+            }
+        }
         .popular-caption{
             padding: 31px 15px;
             @include transition(.3s);
@@ -68,7 +68,7 @@
                 font-size: 20px;
                 font-weight: 600;
                 display: block;
-            
+
             }
         }
     }
@@ -83,9 +83,9 @@
             text-decoration: underline;
         }
     }
-   }
+}
 
-   
+
 // Tabs Button Style
 
 .properties{
@@ -105,8 +105,8 @@
             bottom: 37px;
             left: 0;
             @media #{$xs}{
-              position: unset;
-              background: none;
+                position: unset;
+                background: none;
             }
         }
         .nav-item {
@@ -129,13 +129,13 @@
         border: 0;
         border-bottom: 2px solid transparent;
     }
-    
+
 }
 
 .properties .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-	color: $theme-color !important;
-	background-color: #fff;
-	border-bottom: 2px solid $theme-color;
-	z-index: 9;
-	position: relative;
+    color: $theme-color !important;
+    background-color: #fff;
+    border-bottom: 2px solid $theme-color;
+    z-index: 9;
+    position: relative;
 }

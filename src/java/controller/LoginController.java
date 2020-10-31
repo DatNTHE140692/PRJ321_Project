@@ -50,7 +50,7 @@ public class LoginController extends HttpServlet {
         UserDAO accountDB = new UserDAO();
         User account = accountDB.getAccount(username, password);
         if (account != null) {
-            request.getSession(true).setAttribute("account", account);
+            request.getSession().setAttribute("account", account);
             response.sendRedirect("home");
         } else {
             String errorMsg = "Username/Password incorrect!";

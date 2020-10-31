@@ -45,8 +45,6 @@
                                             <c:when test="${sessionScope.account eq null}">
                                                 <div class="account-btn">
                                                     <a href="login" class="btn hero-btn">Login</a>
-                                                    |
-                                                    <a href="register" class="btn hero-btn">Register</a>
                                                 </div>
                                             </c:when>
                                             <c:otherwise>

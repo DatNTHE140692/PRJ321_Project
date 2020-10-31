@@ -5,11 +5,14 @@
  */
 package controller;
 
+import dal.CategoryDAO;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Category;
 
 /**
  *
@@ -29,6 +32,9 @@ public class StoreController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        CategoryDAO categoryDB = new CategoryDAO();
+        ArrayList<Category> categories = categoryDB.getCategories();
+        request.setAttribute("categories", categories);
         request.getRequestDispatcher("store.jsp").forward(request, response);
     }
 

@@ -16,11 +16,11 @@
                             <div class="row">
                                 <div class="col-xl-6 col-lg-8 col-md-8">
                                     <div class="hero__caption hero__caption2">
-                                        <h1 data-animation="fadeInUp" data-delay=".4s" >Categories</h1>
+                                        <h1 data-animation="fadeInUp" data-delay=".4s" >Our Store</h1>
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb">
                                                 <li class="breadcrumb-item"><a href="home">Home</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Categories</a></li> 
+                                                <li class="breadcrumb-item"><a href="#">Store</a></li> 
                                             </ol>
                                         </nav>
                                     </div>
@@ -54,12 +54,12 @@
                                                 <h2><i class="fa fa-search" aria-hidden="true"></i> Search Product</h2>
                                             </div>
                                         </div>
-                                        <div class="col-12">
-                                            <form action="search" class="row">
-                                                <input type="text" name="keyword" class="col-9"/>
-                                                <button class="col-3"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                            </form>
-                                        </div>
+                                    </div>
+                                    <div class="col-12 mt-10">
+                                        <form action="search" class="row" id="store_search">
+                                            <input type="text" name="keyword" class="col-9 search_input"/>
+                                            <button class="col-3 search_btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,11 @@
                                             </div>
                                         </div>
                                         <div class="col-12 mt-20">
-                                            Test
+                                            <ul class="unordered-list">
+                                                <c:forEach items="${requestScope.categories}" var="c">
+                                                    <li><a href="?cid=${c.id}" style="color: black">${c.name}</a></li>
+                                                </c:forEach>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>

@@ -20,7 +20,7 @@ import model.User;
 public abstract class BaseAuthController extends HttpServlet {
 
     private boolean isAccessGranted(HttpServletRequest request) throws ServletException, IOException {
-        HttpSession session = request.getSession(true);
+        HttpSession session = request.getSession();
         User account = (User) session.getAttribute("account");
         return account != null;
     }

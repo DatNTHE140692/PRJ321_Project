@@ -21,7 +21,7 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="home"><i class="fas fa-home"></i> Home</a></li> 
-                                    <li><a href="store"><i class="fas fa-store-alt"></i> Store</a></li>
+                                    <li><a href="store"><i class="fas fa-store"></i> Store</a></li>
                                     <li><a href="contact"><i class="fas fa-envelope-open-text"></i> Contact</a></li>
                                 </ul>
                             </nav>
@@ -53,10 +53,10 @@
                                                         <li>
                                                             <a class="account-btn"><img src="${sessionScope.account.avatarURL}" width="35" height="35" /> ${sessionScope.account.fullname}</a>
                                                             <ul class="submenu">
-                                                                <li><a href="profile">My Profile</a></li>
-                                                                <li><a href="change-password">Change Password</a></li>
-                                                                <li><a href="cart">Cart</a></li>
-                                                                <li><a href="logout">Log Out!</a></li>
+                                                                <li><a href="profile"><i class="far fa-address-card"></i> My Profile</a></li>
+                                                                <li><a href="change-password"><i class="fas fa-key"></i> Change Password</a></li>
+                                                                <li><a href="cart"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                                                                <li><a href="logout"><i class="fas fa-sign-out-alt"></i> Log Out!</a></li>
                                                             </ul>
                                                         </li>
                                                     </ul>

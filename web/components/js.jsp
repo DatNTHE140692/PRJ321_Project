@@ -2,8 +2,8 @@
 <!-- Jquery, Popper, Bootstrap -->
 <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
 <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
-<script src="./assets/js/popper.min.js"></script>
-<script src="./assets/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
 
 <!-- Slick-slider , Owl-Carousel ,slick-nav -->
 <script src="./assets/js/owl.carousel.min.js"></script>

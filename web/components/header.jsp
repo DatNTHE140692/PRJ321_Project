@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
 <header>
     <!-- Header Start -->
@@ -42,7 +41,7 @@
                                 <li>
                                     <div class="main-menu d-none d-lg-block">
                                         <c:choose>
-                                            <c:when test="${sessionScope.account eq null}">
+                                            <c:when test="${sessionScope.user eq null}">
                                                 <div class="account-btn">
                                                     <a href="login" class="btn hero-btn"><i class="fas fa-sign-in-alt"></i> Login</a>
                                                 </div>
@@ -51,7 +50,7 @@
                                                 <nav>
                                                     <ul id="navigation">
                                                         <li>
-                                                            <a class="account-btn"><img src="${sessionScope.account.avatarURL}" width="35" height="35" /> ${sessionScope.account.fullname}</a>
+                                                            <a class="account-btn"><img src="${sessionScope.user.avatarURL}" width="35" height="35" /> ${sessionScope.user.fullname}</a>
                                                             <ul class="submenu">
                                                                 <li><a href="profile"><i class="far fa-address-card"></i> My Profile</a></li>
                                                                 <li><a href="change-password"><i class="fas fa-key"></i> Change Password</a></li>

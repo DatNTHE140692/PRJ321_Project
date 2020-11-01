@@ -21,8 +21,8 @@ public abstract class BaseAuthController extends HttpServlet {
 
     private boolean isAccessGranted(HttpServletRequest request) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        User account = (User) session.getAttribute("account");
-        return account != null;
+        User user = (User) session.getAttribute("user");
+        return user != null;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

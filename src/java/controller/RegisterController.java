@@ -51,15 +51,15 @@ public class RegisterController extends HttpServlet {
         String fullname = request.getParameter("fullname").trim();
         String address = request.getParameter("address").trim();
         String phonenumber = request.getParameter("phone").trim();
-        User account = new User();
-        account.setFullname(fullname);
-        account.setUsername(username);
-        account.setPassword(password);
-        account.setEmail(email);
-        account.setPhonenumber(phonenumber);
-        account.setAddress(address);
+        User user = new User();
+        user.setFullname(fullname);
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setEmail(email);
+        user.setPhonenumber(phonenumber);
+        user.setAddress(address);
         UserDAO accountDB = new UserDAO();
-        boolean isInserted = accountDB.insert(account);
+        boolean isInserted = accountDB.insert(user);
         if (isInserted) {
             response.sendRedirect("login");
         }

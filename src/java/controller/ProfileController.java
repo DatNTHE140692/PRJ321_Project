@@ -50,15 +50,15 @@ public class ProfileController extends BaseAuthController {
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
-        User account = (User) request.getSession(false).getAttribute("account");
-        account.setAvatarURL(avatarURL);
-        account.setFullname(name);
-        account.setUsername(username);
-        account.setAddress(address);
-        account.setEmail(email);
-        account.setPhonenumber(phone);
-        UserDAO accountDB = new UserDAO();
-        boolean isUpdated = accountDB.updateProfile(account);
+        User user = (User) request.getSession(false).getAttribute("user");
+        user.setAvatarURL(avatarURL);
+        user.setFullname(name);
+        user.setUsername(username);
+        user.setAddress(address);
+        user.setEmail(email);
+        user.setPhonenumber(phone);
+        UserDAO userDB = new UserDAO();
+        boolean isUpdated = userDB.updateProfile(user);
         if (isUpdated) {
             processGet(request, response);
         }

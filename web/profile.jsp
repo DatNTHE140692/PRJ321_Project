@@ -38,32 +38,32 @@
                                         <h1><i class="fa fa-address-card" aria-hidden="true"></i> User Profile</h1>
                                     </div>
                                     <div class="text-center">
-                                        <img src="${sessionScope.account.avatarURL}" alt="avatar" width="250" height="250" />
+                                        <img src="${sessionScope.user.avatarURL}" alt="avatar" width="250" height="250" />
                                     </div>
                                     <form action="profile" method="post">
                                         <div class="mt-20">
                                             <label for="name">Avatar URL: </label>
-                                            <input type="text" name="avatar" placeholder="Your avatar" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your avatar'" class="single-input" value="${sessionScope.account.avatarURL}">
+                                            <input type="text" name="avatar" placeholder="Your avatar" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your avatar'" class="single-input" value="${sessionScope.user.avatarURL}">
                                         </div>
                                         <div class="mt-20">
                                             <label for="name">Your name : </label>
-                                            <input type="text" name="name" placeholder="Your Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your name'" required class="single-input" value="${sessionScope.account.fullname}">
+                                            <input type="text" name="name" placeholder="Your Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your name'" required class="single-input" value="${sessionScope.user.fullname}">
                                         </div>
                                         <div class="mt-20">
                                             <label for="name">Username : </label>
-                                            <input type="text" name="username" placeholder="UserName" onfocus="this.placeholder = ''" onblur="this.placeholder = 'UserName'" readonly class="single-input" value="${sessionScope.account.username}">
+                                            <input type="text" name="username" placeholder="UserName" onfocus="this.placeholder = ''" onblur="this.placeholder = 'UserName'" readonly class="single-input" value="${sessionScope.user.username}">
                                         </div>
                                         <div class="mt-20">
                                             <label for="name">Email : </label>
-                                            <input type="email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required class="single-input" value="${sessionScope.account.email}">
+                                            <input type="email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required class="single-input" value="${sessionScope.user.email}">
                                         </div>
                                         <div class="mt-20">
                                             <label for="name">Phone Number : </label>
-                                            <input type="text" name="phone" placeholder="Phone Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'" required class="single-input" value="${sessionScope.account.phonenumber}">
+                                            <input type="text" name="phone" placeholder="Phone Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'" required class="single-input" value="${sessionScope.user.phonenumber}">
                                         </div>
                                         <div class="mt-20">
                                             <label for="name">Address : </label>
-                                            <input type="text" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" required class="single-input" value="${sessionScope.account.address}">
+                                            <input type="text" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" required class="single-input" value="${sessionScope.user.address}">
                                         </div>
                                         <div class="mt-20">
                                             <input type="submit" value="Save" class="btn hero-btn" />

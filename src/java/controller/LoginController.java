@@ -48,9 +48,9 @@ public class LoginController extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         UserDAO accountDB = new UserDAO();
-        User account = accountDB.getAccount(username, password);
-        if (account != null) {
-            request.getSession().setAttribute("account", account);
+        User user = accountDB.getAccount(username, password);
+        if (user != null) {
+            request.getSession().setAttribute("user", user);
             response.sendRedirect("home");
         } else {
             String errorMsg = "Username/Password incorrect!";

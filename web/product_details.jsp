@@ -35,7 +35,7 @@
             <div class="product_image_area section-padding40">
                 <div class="container">
                     <div class="row s_product_inner">
-                        <div class="col-lg-5">
+                        <div class="col-lg-6">
                             <div class="flexslider">
                                 <ul class="slides">
                                     <li data-thumb="assets/img/gallery/product-details1.png">
@@ -53,7 +53,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-5 offset-lg-1">
+                        <div class="col-lg-6">
                             <div class="s_product_text">
                                 <h3>Faded SkyBlu Denim Jeans</h3>
                                 <h2>$149.99</h2>

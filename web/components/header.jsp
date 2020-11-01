@@ -20,9 +20,9 @@
                         <div class="main-menu d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="home">Home</a></li> 
-                                    <li><a href="store">Store</a></li>
-                                    <li><a href="contact">Contact</a></li>
+                                    <li><a href="home"><i class="fas fa-home"></i> Home</a></li> 
+                                    <li><a href="store"><i class="fas fa-store-alt"></i> Store</a></li>
+                                    <li><a href="contact"><i class="fas fa-envelope-open-text"></i> Contact</a></li>
                                 </ul>
                             </nav>
                         </div>   
@@ -44,7 +44,7 @@
                                         <c:choose>
                                             <c:when test="${sessionScope.account eq null}">
                                                 <div class="account-btn">
-                                                    <a href="login" class="btn hero-btn">Login</a>
+                                                    <a href="login" class="btn hero-btn"><i class="fas fa-sign-in-alt"></i> Login</a>
                                                 </div>
                                             </c:when>
                                             <c:otherwise>

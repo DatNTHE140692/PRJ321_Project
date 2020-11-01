@@ -17,7 +17,7 @@ public class Product {
     private String name;
     private String shortDesc;
     private String desc;
-    private String specs;
+    private boolean available;
     private ArrayList<String> images = new ArrayList<>();
     private ArrayList<Category> categories = new ArrayList<>();
     private ArrayList<Comment> comments = new ArrayList<>();
@@ -54,12 +54,12 @@ public class Product {
         this.desc = desc;
     }
 
-    public String getSpecs() {
-        return specs;
+    public boolean isAvailable() {
+        return available;
     }
 
-    public void setSpecs(String specs) {
-        this.specs = specs;
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 
     public ArrayList<String> getImages() {

@@ -9,11 +9,11 @@ package model;
  *
  * @author #Panda
  */
-public class Category {
+public class Image {
 
     private int id;
-    private String name;
-
+    private String imgSrc;
+    
     public int getId() {
         return id;
     }
@@ -22,12 +22,12 @@ public class Category {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getImgSrc() {
+        return imgSrc;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setImgSrc(String imgSrc) {
+        this.imgSrc = imgSrc;
     }
 
 }

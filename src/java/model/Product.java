@@ -15,10 +15,11 @@ public class Product {
 
     private int id;
     private String name;
+    private float price;
     private String shortDesc;
     private String desc;
     private boolean available;
-    private ArrayList<String> images = new ArrayList<>();
+    private ArrayList<Image> images = new ArrayList<>();
     private ArrayList<Category> categories = new ArrayList<>();
     private ArrayList<Comment> comments = new ArrayList<>();
 
@@ -62,11 +63,11 @@ public class Product {
         this.available = available;
     }
 
-    public ArrayList<String> getImages() {
+    public ArrayList<Image> getImages() {
         return images;
     }
 
-    public void setImages(ArrayList<String> images) {
+    public void setImages(ArrayList<Image> images) {
         this.images = images;
     }
 
@@ -84,6 +85,14 @@ public class Product {
 
     public void setComments(ArrayList<Comment> comments) {
         this.comments = comments;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
 
 }

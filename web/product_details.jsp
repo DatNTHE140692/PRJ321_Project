@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html class="no-js" lang="vi">
     <!-- head tag import Start -->
@@ -38,37 +39,31 @@
                         <div class="col-lg-6">
                             <div class="flexslider">
                                 <ul class="slides">
-                                    <li data-thumb="assets/img/gallery/product-details1.png">
-                                        <img src="assets/img/gallery/product-details1.png" class="w-100" />
-                                    </li>
-                                    <li data-thumb="assets/img/gallery/product-details2.png">
-                                        <img src="assets/img/gallery/product-details2.png" class="w-100" />
-                                    </li>
-                                    <li data-thumb="assets/img/gallery/product-details3.png">
-                                        <img src="assets/img/gallery/product-details3.png" class="w-100" />
-                                    </li>
-                                    <li data-thumb="assets/img/gallery/product-details4.png">
-                                        <img src="assets/img/gallery/product-details4.png" class="w-100" />
-                                    </li>
+                                    <c:forEach items="${requestScope.product.images}" var="i">
+                                        <li data-thumb="${i.imgSrc}">
+                                            <img src="${i.imgSrc}" class="w-100" />
+                                        </li>
+                                    </c:forEach>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="s_product_text">
-                                <h3>Faded SkyBlu Denim Jeans</h3>
-                                <h2>$149.99</h2>
+                                <h3>${requestScope.product.name}</h3>
+                                <h2>$${requestScope.product.price}</h2>
                                 <ul class="list">
                                     <li>
-                                        <a class="active" href="#">
-                                            <span>Category</span> : Household</a>
+                                        Category:
+                                        <c:forEach items="${requestScope.product.categories}" var="c">
+                                            <a class="active" href="#">${c.name} </a>
+                                        </c:forEach>
                                     </li>
                                     <li>
-                                        <a href="#"> <span>Availibility</span> : In Stock</a>
+                                        Available:
+                                        <a href="#">${requestScope.product.available ? "In Stock" : "Out Of Stock"}</a>
                                     </li>
                                 </ul>
-                                <p>
-                                    Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for something that can make your interior look awesome, and at the same time.
-                                </p>
+                                <p>${requestScope.product.shortDesc}</p>
                                 <div class="card_area">
                                     <div class="product_count d-inline-block">
                                         <span class="inumber-decrement"> <i class="ti-minus"></i></span>
@@ -105,89 +100,46 @@
                     </ul>
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade active show" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <p>
-                                Beryl Cook is one of Britainâ€™s most talented and amusing artists
-                                .Berylâ€™s pictures feature women of all shapes and sizes enjoying
-                                themselves .Born between the two world wars, Beryl Cook eventually
-                                left Kendrick School in Reading at the age of 15, where she went
-                                to secretarial school and then into an insurance office. After
-                                moving to London and then Hampton, she eventually married her next
-                                door neighbour from Reading, John Cook. He was an officer in the
-                                Merchant Navy and after he left the sea in 1956, they bought a pub
-                                for a year before John took a job in Southern Rhodesia with a
-                                motor company. Beryl bought their young son a box of watercolours,
-                                and when showing him how to use it, she decided that she herself
-                                quite enjoyed painting. John subsequently bought her a childâ€™s
-                                painting set for her birthday and it was with this that she
-                                produced her first significant work, a half-length portrait of a
-                                dark-skinned lady with a vacant expression and large drooping
-                                breasts. It was aptly named â€˜Hangoverâ€™ by Berylâ€™s husband and
-                            </p>
-                            <p>
-                                It is often frustrating to attempt to plan meals that are designed
-                                for one. Despite this fact, we are seeing more and more recipe
-                                books and Internet websites that are dedicated to the act of
-                                cooking for one. Divorce and the death of spouses or grown
-                                children leaving for college are all reasons that someone
-                                accustomed to cooking for more than one would suddenly need to
-                                learn how to adjust all the cooking practices utilized before into
-                                a streamlined plan of cooking that is more efficient for one
-                                person creating less
-                            </p>
+                            ${requestScope.product.desc}
                         </div>
                         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                             <div class="row">
                                 <div class="col-lg-12 mb-20">
                                     <div class="review_box">
-                                        <h4>Post a comment</h4>
-                                        <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
-                                              novalidate="novalidate">
-                                            <textarea class="col-lg-9" name="message" id="message" rows="1"
-                                                      placeholder="Message"></textarea>
-                                            <button type="submit" value="submit" class="btn col-lg-3">
-                                                Submit Now
-                                            </button>
-                                        </form>
+                                        <c:choose>
+                                            <c:when test="${sessionScope.user eq null}">
+                                                <a href="login" class="genric-btn info e-large">LOGIN TO COMMENT!</a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <h4>Post a comment</h4>
+                                                <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
+                                                      novalidate="novalidate">
+                                                    <textarea class="col-lg-9" name="message" id="message" rows="1"
+                                                              placeholder="Message"></textarea>
+                                                    <button type="submit" value="submit" class="btn col-lg-3">
+                                                        Submit Now
+                                                    </button>
+                                                </form>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="comment_list">
-                                        <div class="review_item">
-                                            <div class="media">
-                                                <div class="d-flex">
-                                                    <img src="assets/img/gallery/review-1.png" alt="" />
+                                        <c:forEach items="${requestScope.product.comments}" var="c">
+                                            <div class="review_item">
+                                                <div class="media">
+                                                    <div class="d-flex">
+                                                        <img src="${c.user.avatarURL}" alt="" width="70px" height="70px"/>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4>${c.user.fullname}</h4>
+                                                        <h5>${c.cmtDate}</h5>
+                                                    </div>
                                                 </div>
-                                                <div class="media-body">
-                                                    <h4>Blake Ruiz</h4>
-                                                    <h5>12th Feb, 2017 at 05:56 pm</h5>
-                                                    <a class="reply_btn" href="#">Reply</a>
-                                                </div>
+                                                <p>${c.comment}</p>
                                             </div>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna
-                                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                                ullamco laboris nisi ut aliquip ex ea commodo
-                                            </p>
-                                        </div>
-                                        <div class="review_item">
-                                            <div class="media">
-                                                <div class="d-flex">
-                                                    <img src="assets/img/gallery/review-3.png" alt="" />
-                                                </div>
-                                                <div class="media-body">
-                                                    <h4>Blake Ruiz</h4>
-                                                    <h5>12th Feb, 2017 at 05:56 pm</h5>
-                                                    <a class="reply_btn" href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna
-                                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                                ullamco laboris nisi ut aliquip ex ea commodo
-                                            </p>
-                                        </div>
+                                        </c:forEach>
                                     </div>
                                 </div>
                             </div>
@@ -267,7 +219,7 @@
                   $('.flexslider').flexslider({
                         animation: "slide",
                         controlNav: "thumbnails",
-                        directionNav: false
+                    directionNav: false
                   });
             });
         </script>

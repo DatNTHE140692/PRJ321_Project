@@ -26,7 +26,9 @@ public class CategoryDAO extends BaseDAO {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                Category category = new Category(rs.getInt("cid"), rs.getString("cname"));
+                Category category = new Category();
+                category.setId(rs.getInt("cid"));
+                category.setName(rs.getString("cname"));
                 categories.add(category);
             }
         } catch (SQLException ex) {

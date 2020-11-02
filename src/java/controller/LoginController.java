@@ -47,8 +47,8 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        UserDAO accountDB = new UserDAO();
-        User user = accountDB.getAccount(username, password);
+        UserDAO userDB = new UserDAO();
+        User user = userDB.getAccount(username, password);
         if (user != null) {
             request.getSession().setAttribute("user", user);
             response.sendRedirect("home");

@@ -58,8 +58,8 @@ public class RegisterController extends HttpServlet {
         user.setEmail(email);
         user.setPhonenumber(phonenumber);
         user.setAddress(address);
-        UserDAO accountDB = new UserDAO();
-        boolean isInserted = accountDB.insert(user);
+        UserDAO userDB = new UserDAO();
+        boolean isInserted = userDB.insert(user);
         if (isInserted) {
             response.sendRedirect("login");
         }

@@ -5,11 +5,13 @@
  */
 package controller;
 
+import dal.ProductDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Product;
 
 /**
  *
@@ -29,7 +31,14 @@ public class ProductDetailsController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("product_details.jsp").forward(request, response);
+        String pid = request.getParameter("id");
+        if (pid != null && !pid.trim().isEmpty()) {
+            int id = Integer.parseInt(pid);
+            ProductDAO productDB = new ProductDAO();
+            Product product = productDB.getProductByID(id);
+            request.setAttribute("product", product);
+            request.getRequestDispatcher("product_details.jsp").forward(request, response);
+        }
     }
 
     /**

@@ -5,14 +5,26 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author #Panda
  */
 public class Comment {
 
+    private int id;
     private User user;
+    private Date cmtDate;
     private String comment;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public User getUser() {
         return user;
@@ -20,6 +32,14 @@ public class Comment {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Date getCmtDate() {
+        return cmtDate;
+    }
+
+    public void setCmtDate(Date cmtDate) {
+        this.cmtDate = cmtDate;
     }
 
     public String getComment() {

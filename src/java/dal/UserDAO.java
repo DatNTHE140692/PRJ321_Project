@@ -27,6 +27,7 @@ public class UserDAO extends BaseDAO {
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 User account = new User();
+                account.setUserID(rs.getInt("uid"));
                 account.setUsername(rs.getString("username"));
                 account.setPassword(rs.getString("password"));
                 account.setFullname(rs.getString("fullname"));

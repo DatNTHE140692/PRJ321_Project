@@ -26,7 +26,7 @@ public class ProductDAO extends BaseDAO {
     public ArrayList<Product> getProducts() {
         ArrayList<Product> products = new ArrayList<>();
         try {
-            String sql = "SELECT p.pid, p.pname, p.price, p.pshortdesc, p.pdesc, p.available, ISNULL(c.cid, -1) cid, c.cname, ISNULL(pi.imgid, -1) imgid, pi.imageURL, ISNULL(pcmt.cmtid, -1) cmtid, pcmt.cdate, pcmt.comment FROM dbo.Products p LEFT OUTER JOIN dbo.Product_Categories pc ON pc.pid = p.pid LEFT OUTER JOIN dbo.Categories c ON c.cid = pc.cid LEFT OUTER JOIN dbo.Product_Images pi ON pi.pid = p.pid LEFT OUTER JOIN dbo.Product_Comments pcmt ON pcmt.pid = p.pid";
+            String sql = "SELECT p.pid, p.pname, p.price, p.pshortdesc, p.pdesc, p.available, ISNULL(c.cid, -1) cid, c.cname, ISNULL(pi.imgid, -1) imgid, pi.imageURL FROM dbo.Products p LEFT OUTER JOIN dbo.Product_Categories pc ON pc.pid = p.pid LEFT OUTER JOIN dbo.Categories c ON c.cid = pc.cid  LEFT OUTER JOIN dbo.Product_Images pi ON pi.pid = p.pid";
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             Product product = new Product();
@@ -70,13 +70,7 @@ public class ProductDAO extends BaseDAO {
 
     public Product getProductByID(int id) {
         try {
-            String sql = "SELECT p.pid, p.pname, p.price, p.pshortdesc, p.pdesc, p.available, ISNULL(c.cid, -1) cid, c.cname, ISNULL(pi.imgid, -1) imgid, pi.imageURL, ISNULL(pcmt.cmtid, -1) cmtid, u.fullname, u.avatarURL, pcmt.cdate, pcmt.comment\n"
-                    + "FROM dbo.Products p LEFT OUTER JOIN dbo.Product_Categories pc ON pc.pid = p.pid  \n"
-                    + "LEFT OUTER JOIN dbo.Categories c ON c.cid = pc.cid \n"
-                    + "LEFT OUTER JOIN dbo.Product_Images pi ON pi.pid = p.pid \n"
-                    + "LEFT OUTER JOIN dbo.Product_Comments pcmt ON pcmt.pid = p.pid\n"
-                    + "LEFT OUTER JOIN dbo.Users u ON u.uid = pcmt.uid\n"
-                    + "WHERE p.pid = ?";
+            String sql = "SELECT p.pid, p.pname, p.price, p.pshortdesc, p.pdesc, p.available, ISNULL(c.cid, -1) cid, c.cname, ISNULL(pi.imgid, -1) imgid, pi.imageURL FROM dbo.Products p LEFT OUTER JOIN dbo.Product_Categories pc ON pc.pid = p.pid LEFT OUTER JOIN dbo.Categories c ON c.cid = pc.cid  LEFT OUTER JOIN dbo.Product_Images pi ON pi.pid = p.pid WHERE p.pid = ?";
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
@@ -112,18 +106,6 @@ public class ProductDAO extends BaseDAO {
                     image.setId(imgid);
                     image.setImgSrc(rs.getString("imageURL"));
                     product.getImages().add(image);
-                }
-                int cmtid = rs.getInt("cmtid");
-                if (cmtid != comment.getId() && cmtid != -1) {
-                    comment = new Comment();
-                    comment.setId(cmtid);
-                    comment.setCmtDate(rs.getDate("cdate"));
-                    comment.setComment(rs.getString("comment"));
-                    User user = new User();
-                    user.setFullname(rs.getString("fullname"));
-                    user.setAvatarURL(rs.getString("avatarURL"));
-                    comment.setUser(user);
-                    product.getComments().add(comment);
                 }
             }
             return product;

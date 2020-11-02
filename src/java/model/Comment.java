@@ -6,6 +6,7 @@
 package model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  *
@@ -13,9 +14,10 @@ import java.sql.Date;
  */
 public class Comment {
 
+    private int pid;
     private int id;
     private User user;
-    private Date cmtDate;
+    private Timestamp cmtDate;
     private String comment;
 
     public int getId() {
@@ -34,11 +36,11 @@ public class Comment {
         this.user = user;
     }
 
-    public Date getCmtDate() {
+    public Timestamp getCmtDate() {
         return cmtDate;
     }
 
-    public void setCmtDate(Date cmtDate) {
+    public void setCmtDate(Timestamp cmtDate) {
         this.cmtDate = cmtDate;
     }
 
@@ -48,6 +50,14 @@ public class Comment {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public int getPid() {
+        return pid;
+    }
+
+    public void setPid(int pid) {
+        this.pid = pid;
     }
 
 }

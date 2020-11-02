@@ -11,6 +11,7 @@ package model;
  */
 public class User {
 
+    private int userID;
     private String username;
     private String password;
     private String email;
@@ -19,17 +20,12 @@ public class User {
     private String phonenumber;
     private String avatarURL;
 
-    public User(String username, String password, String email, String fullname, String address, String phonenumber, String avatarURL) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.fullname = fullname;
-        this.address = address;
-        this.phonenumber = phonenumber;
-        this.avatarURL = avatarURL;
+    public int getUserID() {
+        return userID;
     }
 
-    public User() {
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     public String getFullname() {

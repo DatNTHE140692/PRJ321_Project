@@ -5,12 +5,15 @@
  */
 package controller;
 
+import dal.CommentDAO;
 import dal.ProductDAO;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Comment;
 import model.Product;
 
 /**
@@ -34,10 +37,15 @@ public class ProductDetailsController extends HttpServlet {
         String pid = request.getParameter("id");
         if (pid != null && !pid.trim().isEmpty()) {
             int id = Integer.parseInt(pid);
+            CommentDAO commentDB = new CommentDAO();
+            ArrayList<Comment> comments = commentDB.getCommentsByProID(id);
             ProductDAO productDB = new ProductDAO();
             Product product = productDB.getProductByID(id);
+            product.setComments(comments);
             request.setAttribute("product", product);
             request.getRequestDispatcher("product_details.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("store");
         }
     }
 

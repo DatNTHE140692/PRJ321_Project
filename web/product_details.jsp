@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html class="no-js" lang="vi">
@@ -112,13 +113,10 @@
                                             </c:when>
                                             <c:otherwise>
                                                 <h4>Post a comment</h4>
-                                                <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
+                                                <form class="row contact_form" action="comment?pid=${param.id}" method="post" id="contactForm"
                                                       novalidate="novalidate">
-                                                    <textarea class="col-lg-9" name="message" id="message" rows="1"
-                                                              placeholder="Message"></textarea>
-                                                    <button type="submit" value="submit" class="btn col-lg-3">
-                                                        Submit Now
-                                                    </button>
+                                                    <textarea class="col-lg-9" name="message" id="message" rows="1" placeholder="Message"></textarea>
+                                                    <button type="submit" value="submit" class="btn col-lg-3">Comment</button>
                                                 </form>
                                             </c:otherwise>
                                         </c:choose>
@@ -134,7 +132,7 @@
                                                     </div>
                                                     <div class="media-body">
                                                         <h4>${c.user.fullname}</h4>
-                                                        <h5>${c.cmtDate}</h5>
+                                                        <h5><fmt:formatDate pattern="dd-MMM-yyy HH:mm:ss" value = "${c.cmtDate}" /></h5>
                                                     </div>
                                                 </div>
                                                 <p>${c.comment}</p>

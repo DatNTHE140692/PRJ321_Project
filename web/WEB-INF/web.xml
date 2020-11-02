@@ -52,6 +52,10 @@
         <servlet-name>ChangePasswordController</servlet-name>
         <servlet-class>controller.ChangePasswordController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CommentController</servlet-name>
+        <servlet-class>controller.CommentController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ContactController</servlet-name>
         <url-pattern>/contact</url-pattern>
@@ -106,6 +110,10 @@
     <servlet-mapping>
         <servlet-name>ChangePasswordController</servlet-name>
         <url-pattern>/change-password</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CommentController</servlet-name>
+        <url-pattern>/comment</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

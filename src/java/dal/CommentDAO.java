@@ -23,7 +23,7 @@ public class CommentDAO extends BaseDAO {
     public ArrayList<Comment> getCommentsByProID(int pid) {
         ArrayList<Comment> comments = new ArrayList<>();
         try {
-            String sql = "SELECT pc.cmtid, pc.cdate, pc.comment, u.uid, u.fullname, u.avatarURL FROM dbo.Product_Comments pc INNER JOIN dbo.Users u ON u.uid = pc.uid WHERE pid = ?";
+            String sql = "SELECT pc.cmtid, pc.cdate, pc.comment, u.uid, u.fullname, u.avatarURL FROM dbo.Product_Comments pc INNER JOIN dbo.Users u ON u.uid = pc.uid WHERE pc.pid = ? ORDER BY pc.cdate DESC";
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, pid);
             ResultSet rs = st.executeQuery();

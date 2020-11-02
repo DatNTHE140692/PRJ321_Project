@@ -51,6 +51,7 @@ public class LoginController extends HttpServlet {
         User user = userDB.getAccount(username, password);
         if (user != null) {
             request.getSession().setAttribute("user", user);
+            request.getSession().setMaxInactiveInterval(600);
             response.sendRedirect("home");
         } else {
             String errorMsg = "Username/Password incorrect!";

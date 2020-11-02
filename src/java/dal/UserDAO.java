@@ -68,6 +68,9 @@ public class UserDAO extends BaseDAO {
             st.setString(4, user.getEmail());
             st.setString(5, user.getAddress());
             st.setString(6, user.getPhonenumber());
+            if (user.getAvatarURL() == null) {
+                user.setAvatarURL("assets/img/icon/avatar.png");
+            }
             st.setString(7, user.getAvatarURL());
             return st.executeUpdate() > 0;
         } catch (SQLException ex) {

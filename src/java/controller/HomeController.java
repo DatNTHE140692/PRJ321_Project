@@ -5,11 +5,14 @@
  */
 package controller;
 
+import dal.ProductDAO;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Product;
 
 /**
  *
@@ -29,6 +32,9 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        ProductDAO productDB = new ProductDAO();
+        ArrayList<Product> latestProducts = productDB.get4LatestProducts();
+        request.setAttribute("latestProducts", latestProducts);
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 

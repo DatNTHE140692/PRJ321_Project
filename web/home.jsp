@@ -46,50 +46,19 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="single-new-arrival mb-50 text-center">
-                                <div class="popular-img">
-                                    <img src="assets/img/gallery/popular1.png" alt="">
-                                </div>
-                                <div class="popular-caption">
-                                    <h3><a href="product_details.html">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
-                                    <span>$367</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="single-new-arrival mb-50 text-center">
-                                <div class="popular-img">
-                                    <img src="assets/img/gallery/popular2.png" alt="">
-                                </div>
-                                <div class="popular-caption">
-                                    <h3><a href="product_details.html">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
-                                    <span>$367</span>
+                        <c:forEach items="${requestScope.latestProducts}" var="p">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="single-new-arrival mb-50 text-center">
+                                    <div class="popular-img">
+                                        <img src="${p.thumbnail}" alt="">
+                                    </div>
+                                    <div class="popular-caption">
+                                        <h3><a href="product_details?id=${p.id}">${p.name}</a></h3>
+                                        <span>$${p.price}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="single-new-arrival mb-50 text-center">
-                                <div class="popular-img">
-                                    <img src="assets/img/gallery/popular3.png" alt="">
-                                </div>
-                                <div class="popular-caption">
-                                    <h3><a href="product_details.html">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
-                                    <span>$367</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="single-new-arrival mb-50 text-center">
-                                <div class="popular-img">
-                                    <img src="assets/img/gallery/popular3.png" alt="">
-                                </div>
-                                <div class="popular-caption">
-                                    <h3><a href="product_details.html">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
-                                    <span>$367</span>
-                                </div>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
             </section>

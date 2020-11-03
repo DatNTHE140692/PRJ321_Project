@@ -35,7 +35,7 @@ public class ProductDetailsController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String pid = request.getParameter("id");
-        if (pid != null || !pid.trim().isEmpty()) {
+        if (pid != null && !pid.trim().isEmpty()) {
             String pageId = request.getParameter("page");
             if (pageId == null || pageId.trim().isEmpty()) {
                 pageId = "1";

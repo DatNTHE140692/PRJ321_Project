@@ -19,6 +19,7 @@ public class Product {
     private String shortDesc;
     private String desc;
     private boolean available;
+    private String thumbnail;
     private ArrayList<Image> images = new ArrayList<>();
     private ArrayList<Category> categories = new ArrayList<>();
     private ArrayList<Comment> comments = new ArrayList<>();
@@ -61,6 +62,14 @@ public class Product {
 
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
     }
 
     public ArrayList<Image> getImages() {

@@ -279,7 +279,6 @@
         <div id="back-top" >
             <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
         </div>
-
         <!-- js import Start -->
         <%@ include file="components/js.jsp" %>
         <!-- js import End -->

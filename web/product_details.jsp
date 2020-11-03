@@ -121,26 +121,28 @@
                                 </c:choose>
                             </div>
                         </div>
-                        <div class="col-lg-12">
-                            <ul class="pagination"></ul>
-                            <div class="comment_list mt-25 mb-25">
-                                <c:forEach items="${requestScope.product.comments}" var="c">
-                                    <div class="review_item">
-                                        <div class="media">
-                                            <div class="d-flex">
-                                                <img src="${c.user.avatarURL}" alt="" width="70px" height="70px"/>
+                        <c:if test="${not empty requestScope.product.comments}">
+                            <div class="col-lg-12">
+                                <ul class="pagination"></ul>
+                                <div class="comment_list mt-25 mb-25">
+                                    <c:forEach items="${requestScope.product.comments}" var="c">
+                                        <div class="review_item">
+                                            <div class="media">
+                                                <div class="d-flex">
+                                                    <img src="${c.user.avatarURL}" alt="" width="70px" height="70px"/>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4>${c.user.fullname}</h4>
+                                                    <h5><fmt:formatDate pattern="dd-MMM-yyy HH:mm:ss" value = "${c.cmtDate}" /></h5>
+                                                </div>
                                             </div>
-                                            <div class="media-body">
-                                                <h4>${c.user.fullname}</h4>
-                                                <h5><fmt:formatDate pattern="dd-MMM-yyy HH:mm:ss" value = "${c.cmtDate}" /></h5>
-                                            </div>
+                                            <p>${c.comment}</p>
                                         </div>
-                                        <p>${c.comment}</p>
-                                    </div>
-                                </c:forEach>
+                                    </c:forEach>
+                                </div>
+                                <ul class="pagination"></ul>
                             </div>
-                            <ul class="pagination"></ul>
-                        </div>
+                        </c:if>
                     </div>
                 </div>
                 </div>

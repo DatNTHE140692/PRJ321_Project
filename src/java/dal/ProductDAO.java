@@ -25,7 +25,7 @@ public class ProductDAO extends BaseDAO {
     public ArrayList<Product> getProducts() {
         ArrayList<Product> products = new ArrayList<>();
         try {
-            String sql = "SELECT p.pid, p.pname, p.price, p.pshortdesc, p.pdesc, p.available, ISNULL(c.cid, -1) cid, c.cname, ISNULL(pi.imgid, -1) imgid, pi.imageURL FROM dbo.Products p LEFT OUTER JOIN dbo.Product_Categories pc ON pc.pid = p.pid LEFT OUTER JOIN dbo.Categories c ON c.cid = pc.cid  LEFT OUTER JOIN dbo.Product_Images pi ON pi.pid = p.pid";
+            String sql = "SELECT p.pid, p.pname, p.price, p.pshortdesc, p.pdesc, p.available, p.pthumbnail, ISNULL(c.cid, -1) cid, c.cname, ISNULL(pi.imgid, -1) imgid, pi.imageURL FROM dbo.Products p LEFT OUTER JOIN dbo.Product_Categories pc ON pc.pid = p.pid LEFT OUTER JOIN dbo.Categories c ON c.cid = pc.cid  LEFT OUTER JOIN dbo.Product_Images pi ON pi.pid = p.pid";
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             Product product = new Product();
@@ -44,6 +44,7 @@ public class ProductDAO extends BaseDAO {
                     product.setShortDesc(rs.getString("pshortdesc"));
                     product.setDesc(rs.getString("pdesc"));
                     product.setAvailable(rs.getBoolean("available"));
+                    product.setThumbnail(rs.getString("pthumbnail"));
                     products.add(product);
                 }
                 int cateid = rs.getInt("cid");
@@ -69,7 +70,7 @@ public class ProductDAO extends BaseDAO {
 
     public Product getProductByID(int id) {
         try {
-            String sql = "SELECT p.pid, p.pname, p.price, p.pshortdesc, p.pdesc, p.available, ISNULL(c.cid, -1) cid, c.cname, ISNULL(pi.imgid, -1) imgid, pi.imageURL FROM dbo.Products p LEFT OUTER JOIN dbo.Product_Categories pc ON pc.pid = p.pid LEFT OUTER JOIN dbo.Categories c ON c.cid = pc.cid  LEFT OUTER JOIN dbo.Product_Images pi ON pi.pid = p.pid WHERE p.pid = ?";
+            String sql = "SELECT p.pid, p.pname, p.price, p.pshortdesc, p.pdesc, p.available, p.pthumbnail, ISNULL(c.cid, -1) cid, c.cname, ISNULL(pi.imgid, -1) imgid, pi.imageURL FROM dbo.Products p LEFT OUTER JOIN dbo.Product_Categories pc ON pc.pid = p.pid LEFT OUTER JOIN dbo.Categories c ON c.cid = pc.cid  LEFT OUTER JOIN dbo.Product_Images pi ON pi.pid = p.pid WHERE p.pid = ?";
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
@@ -91,6 +92,7 @@ public class ProductDAO extends BaseDAO {
                     product.setShortDesc(rs.getString("pshortdesc"));
                     product.setDesc(rs.getString("pdesc"));
                     product.setAvailable(rs.getBoolean("available"));
+                    product.setThumbnail(rs.getString("pthumbnail"));
                 }
                 int cateid = rs.getInt("cid");
                 if (cateid != category.getId() && cateid != -1) {
@@ -113,5 +115,24 @@ public class ProductDAO extends BaseDAO {
         }
         return null;
     }
-    
+
+    public ArrayList<Product> get4LatestProducts() {
+        ArrayList<Product> products = new ArrayList<>();
+        try {
+            String sql = "SELECT TOP 4 * FROM dbo.Products ORDER BY pid DESC";
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getInt("pid"));
+                product.setName(rs.getString("pname"));
+                product.setPrice(rs.getFloat("price"));
+                product.setThumbnail(rs.getString("pthumbnail"));
+                products.add(product);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products;
+    }
 }

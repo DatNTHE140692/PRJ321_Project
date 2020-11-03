@@ -1,4 +1,4 @@
-function pagger(paggerClass, pageIndex, totalPages, gap, id) {
+function pagger(paggerClass, attributeName, attributeValue, pageIndex, totalPages, gap) {
     const pagger = document.getElementsByClassName(paggerClass);
     for (let i = 0; i < pagger.length; i++) {
         const paggerEl = pagger[i];
@@ -7,7 +7,7 @@ function pagger(paggerClass, pageIndex, totalPages, gap, id) {
             firstPagger.setAttribute('class', 'page-item');
             const firstPaggerLink = document.createElement('a');
             firstPaggerLink.setAttribute('class', 'page-link');
-            firstPaggerLink.href = '?id=' + id + '&page=1';
+            firstPaggerLink.href = '?' + attributeName + '=' + attributeValue + '&page=1';
             firstPaggerLink.innerHTML = 'First';
             firstPagger.appendChild(firstPaggerLink);
             paggerEl.appendChild(firstPagger);
@@ -18,7 +18,7 @@ function pagger(paggerClass, pageIndex, totalPages, gap, id) {
                 numPagger.setAttribute('class', 'page-item');
                 const numPaggerLink = document.createElement('a');
                 numPaggerLink.setAttribute('class', 'page-link');
-                numPaggerLink.href = '?id=' + id + '&page=' + j;
+                numPaggerLink.href = '?' + attributeName + '=' + attributeValue + '&page=' + j;
                 numPaggerLink.innerHTML = j;
                 numPagger.appendChild(numPaggerLink);
                 paggerEl.appendChild(numPagger);
@@ -37,7 +37,7 @@ function pagger(paggerClass, pageIndex, totalPages, gap, id) {
                 numPagger.setAttribute('class', 'page-item');
                 const numPaggerLink = document.createElement('a');
                 numPaggerLink.setAttribute('class', 'page-link');
-                numPaggerLink.href = '?id=' + id + '&page=' + j;
+                numPaggerLink.href = '?' + attributeName + '=' + attributeValue + '&page=' + j;
                 numPaggerLink.innerHTML = j;
                 numPagger.appendChild(numPaggerLink);
                 paggerEl.appendChild(numPagger);
@@ -48,7 +48,7 @@ function pagger(paggerClass, pageIndex, totalPages, gap, id) {
             lastPagger.setAttribute('class', 'page-item');
             const lastPaggerLink = document.createElement('a');
             lastPaggerLink.setAttribute('class', 'page-link');
-            lastPaggerLink.href = '?id=' + id + '&page=' + totalPages;
+            lastPaggerLink.href = '?' + attributeName + '=' + attributeValue + '&page=' + totalPages;
             lastPaggerLink.innerHTML = 'Last';
             lastPagger.appendChild(lastPaggerLink);
             paggerEl.appendChild(lastPagger);

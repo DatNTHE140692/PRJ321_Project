@@ -104,7 +104,7 @@
                                                 <div class="media__container">
                                                     <div class="media__body">
                                                         <div class="uix_welcomeSection__title">Welcome to our Store</div>
-                                                        <div class="uix_welcomeSection__text">Wanting to join the rest of our members? Feel free to sign in today.</div>
+                                                        <div class="uix_welcomeSection__text">Wanting to join the rest of our members? Feel free to comment now!.</div>
                                                         <a href="login" class="genric-btn info e-large">Sign in</a>
                                                     </div>
                                                 </div>
@@ -122,7 +122,7 @@
                             </div>
                         </div>
                         <div class="col-lg-12">
-                            <ul class="pagination"></ul>
+                            <nav><ul class="pagination"></ul></nav>
                             <div class="comment_list mt-25 mb-25">
                                 <c:forEach items="${requestScope.product.comments}" var="c">
                                     <div class="review_item">
@@ -132,14 +132,14 @@
                                             </div>
                                             <div class="media-body">
                                                 <h4>${c.user.fullname}</h4>
-                                                <h5><fmt:formatDate pattern="dd-MMM-yyy HH:MM:ss" value = "${c.cmtDate}" /></h5>
+                                                <h5><fmt:formatDate pattern="dd-MMM-yyy HH:mm:ss" value = "${c.cmtDate}" /></h5>
                                             </div>
                                         </div>
                                         <p>${c.comment}</p>
                                     </div>
                                 </c:forEach>
                             </div>
-                            <ul class="pagination"></ul>
+                            <nav><ul class="pagination"></ul></nav>
                         </div>
                     </div>
                 </div>
@@ -221,6 +221,6 @@
             });
         </script>
         <script src="assets/js/pagger.js"></script>
-        <script>pagger('pagination', ${requestScope.pageIndex}, ${requestScope.totalPages}, 2, ${requestScope.pid});</script>
+        <script>pagger('pagination', 'id', ${requestScope.pid},${requestScope.pageIndex}, ${requestScope.totalPages}, 2);</script>
     </body>
 </html>

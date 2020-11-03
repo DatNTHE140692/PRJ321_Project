@@ -33,17 +33,18 @@
                 </div>
             </div>
             <!-- slider Area End-->
+            <!-- featured categories Start -->
             <div class="featured-categories mt-30 mb-30">
                 <div class="container-fluid">
                     <div class="row text-center">
                         <div class="col-lg-12"><div class="section-tittle"><h2>Featured Categories</h2></div></div>
-                        
+
                         <div class="col-lg-3 sh-woocommerce-categories-item">
-                            <a href="https://jevelin.shufflehound.com/shop1/product-category/clothings/">
+                            <a href="#">
                                 <div class="sh-ratio">
                                     <div class="sh-ratio-container">
                                         <div class="sh-ratio-content sh-woocommerce-categories-content">
-                                            <div class="sh-woocommerce-categories-thumb" style="background-image: url(https://cdn.jevelin.shufflehound.com/wp-content/uploads/sites/9/2016/11/img_2.jpg);"></div>
+                                            <div class="sh-woocommerce-categories-thumb" style="background-image: url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');"></div>
                                             <h3>
                                                 Clothings <span class="sh-woocommerce-categories-count">5</span>
                                             </h3>
@@ -67,7 +68,7 @@
                                 </div>
                             </a>
                         </div>
-                        
+
                         <div class="col-lg-3 sh-woocommerce-categories-item">
                             <a href="https://jevelin.shufflehound.com/shop1/product-category/clothings/">
                                 <div class="sh-ratio">
@@ -82,7 +83,7 @@
                                 </div>
                             </a>
                         </div>
-                        
+
                         <div class="col-lg-3 sh-woocommerce-categories-item">
                             <a href="https://jevelin.shufflehound.com/shop1/product-category/accessories/">
                                 <div class="sh-ratio">
@@ -101,6 +102,7 @@
                     </div>
                 </div>
             </div>
+            <!-- featured categories End -->
             <!--? instagram-social start -->
             <div class="instagram-area">
                 <div class="container-fluid">

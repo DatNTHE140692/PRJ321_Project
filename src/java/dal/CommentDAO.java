@@ -23,7 +23,7 @@ public class CommentDAO extends BaseDAO {
     public ArrayList<Comment> getCommentsByProID(int pid, int pageIndex, int pageSize) {
         ArrayList<Comment> comments = new ArrayList<>();
         try {
-            String sql = "WITH r AS(SELECT ROW_NUMBER() OVER(ORDER BY pc.cmtid) AS rownum, pc.cmtid, pc.cdate, pc.comment, u.uid, u.fullname, u.avatarURL FROM dbo.Product_Comments pc INNER JOIN dbo.Users u ON u.uid = pc.uid WHERE pid = ?) SELECT * FROM r WHERE r.rownum >= (? - 1) * ? + 1 AND r.rownum <= ? * ?";
+            String sql = "WITH r AS(SELECT ROW_NUMBER() OVER(ORDER BY pc.cdate DESC) AS rownum, pc.cmtid, pc.cdate, pc.comment, u.uid, u.fullname, u.avatarURL FROM dbo.Product_Comments pc INNER JOIN dbo.Users u ON u.uid = pc.uid WHERE pid = ?) SELECT * FROM r WHERE r.rownum >= (? - 1) * ? + 1 AND r.rownum <= ? * ? ORDER BY r.cdate DESC";
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, pid);
             st.setInt(2, pageIndex);

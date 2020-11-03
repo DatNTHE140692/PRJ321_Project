@@ -21,10 +21,6 @@
         <servlet-class>controller.HomeController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>StoreController</servlet-name>
-        <servlet-class>controller.StoreController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>controller.LogoutController</servlet-class>
     </servlet>
@@ -56,6 +52,10 @@
         <servlet-name>CommentController</servlet-name>
         <servlet-class>controller.CommentController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StoreController</servlet-name>
+        <servlet-class>controller.StoreController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ContactController</servlet-name>
         <url-pattern>/contact</url-pattern>
@@ -75,10 +75,6 @@
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>StoreController</servlet-name>
-        <url-pattern>/store</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
@@ -114,6 +110,10 @@
     <servlet-mapping>
         <servlet-name>CommentController</servlet-name>
         <url-pattern>/comment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StoreController</servlet-name>
+        <url-pattern>/store</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

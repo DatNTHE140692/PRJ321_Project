@@ -34,11 +34,11 @@
                                 <div class="input-box">
                                     <div class="single-input-fields">
                                         <label>Username:</label>
-                                        <input type="text" name="username" placeholder="Enter Username">
+                                        <input type="text" name="username" placeholder="Enter Username" required="">
                                     </div>
                                     <div class="single-input-fields">
                                         <label>Password:</label>
-                                        <input type="password" name="password" placeholder="Enter Password">
+                                        <input type="password" name="password" placeholder="Enter Password" required="">
                                     </div>
                                     <c:if test="${requestScope.errorMsg ne null}">
                                         <div class="single-input-fields">

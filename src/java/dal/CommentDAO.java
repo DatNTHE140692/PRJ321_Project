@@ -20,12 +20,16 @@ import model.User;
  */
 public class CommentDAO extends BaseDAO {
 
-    public ArrayList<Comment> getCommentsByProID(int pid) {
+    public ArrayList<Comment> getCommentsByProID(int pid, int pageIndex, int pageSize) {
         ArrayList<Comment> comments = new ArrayList<>();
         try {
-            String sql = "SELECT pc.cmtid, pc.cdate, pc.comment, u.uid, u.fullname, u.avatarURL FROM dbo.Product_Comments pc INNER JOIN dbo.Users u ON u.uid = pc.uid WHERE pc.pid = ? ORDER BY pc.cdate DESC";
+            String sql = "WITH r AS(SELECT ROW_NUMBER() OVER(ORDER BY pc.cmtid) AS rownum, pc.cmtid, pc.cdate, pc.comment, u.uid, u.fullname, u.avatarURL FROM dbo.Product_Comments pc INNER JOIN dbo.Users u ON u.uid = pc.uid WHERE pid = ?) SELECT * FROM r WHERE r.rownum >= (? - 1) * ? + 1 AND r.rownum <= ? * ?";
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, pid);
+            st.setInt(2, pageIndex);
+            st.setInt(3, pageSize);
+            st.setInt(4, pageIndex);
+            st.setInt(5, pageSize);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 Comment comment = new Comment();
@@ -56,5 +60,21 @@ public class CommentDAO extends BaseDAO {
             Logger.getLogger(CommentDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+
+    public int getTotalComments(int pid) {
+        int cnt = 0;
+        try {
+            String sql = "SELECT COUNT(*) total FROM dbo.Product_Comments WHERE pid = ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, pid);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                cnt = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CommentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cnt;
     }
 }

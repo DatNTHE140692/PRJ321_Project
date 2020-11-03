@@ -72,7 +72,7 @@
                                         <span class="number-increment"> <i class="ti-plus"></i></span>
                                     </div>
                                     <div class="add_to_cart">
-                                        <a href="#" class="btn">add to cart</a>
+                                        <a href="#" class="btn"><i class="fas fa-cart-plus"></i> add to cart</a>
                                     </div>
                                     <div class="social_icon">
                                         <a href="#" class="fb"><i class="ti-facebook"></i></a>
@@ -89,60 +89,60 @@
             <!--? Product Description Area Start-->
             <section class="product_description_area">
                 <div class="container">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active show" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-                               aria-selected="true">Description</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
-                               aria-selected="false">Comments</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade active show" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row">
+                        <div class="col-lg-12 mb-25">
+                            <h3 class="border_bottom_title mb-30"><span>Product Description</span></h3>
                             ${requestScope.product.desc}
                         </div>
-                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                            <div class="row">
-                                <div class="col-lg-12 mb-20">
-                                    <div class="review_box">
-                                        <c:choose>
-                                            <c:when test="${sessionScope.user eq null}">
-                                                <a href="login" class="genric-btn info e-large">LOGIN TO COMMENT!</a>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <h4>Post a comment</h4>
-                                                <form class="row contact_form" action="comment?pid=${param.id}" method="post" id="contactForm"
-                                                      novalidate="novalidate">
-                                                    <textarea class="col-lg-9" name="message" id="message" rows="1" placeholder="Message"></textarea>
-                                                    <button type="submit" value="submit" class="btn col-lg-3">Comment</button>
-                                                </form>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="comment_list">
-                                        <c:forEach items="${requestScope.product.comments}" var="c">
-                                            <div class="review_item">
-                                                <div class="media">
-                                                    <div class="d-flex">
-                                                        <img src="${c.user.avatarURL}" alt="" width="70px" height="70px"/>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h4>${c.user.fullname}</h4>
-                                                        <h5><fmt:formatDate pattern="dd-MMM-yyy HH:mm:ss" value = "${c.cmtDate}" /></h5>
+                        <div class="col-lg-12 mb-25">
+                            <h3 class="border_bottom_title mb-30"><span>Post a comment</span></h3>
+                            <div class="review_box">
+                                <c:choose>
+                                    <c:when test="${sessionScope.user eq null}">
+                                        <div class="uix_welcomeSection">
+                                            <div class="uix_welcomeSection__inner">
+                                                <div class="media__container">
+                                                    <div class="media__body">
+                                                        <div class="uix_welcomeSection__title">Welcome to our Store</div>
+                                                        <div class="uix_welcomeSection__text">Wanting to join the rest of our members? Feel free to sign in today.</div>
+                                                        <a href="login" class="genric-btn info e-large">Sign in</a>
                                                     </div>
                                                 </div>
-                                                <p>${c.comment}</p>
                                             </div>
-                                        </c:forEach>
-                                    </div>
-                                </div>
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <form class="row contact_form" action="comment?pid=${param.id}" method="post" id="contactForm"
+                                              novalidate="novalidate">
+                                            <textarea class="col-lg-9" name="message" id="message" rows="1" placeholder="Message"></textarea>
+                                            <button type="submit" value="submit" class="btn col-lg-3">Comment</button>
+                                        </form>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                         </div>
+                        <div class="col-lg-12">
+                            <ul class="pagination"></ul>
+                            <div class="comment_list mt-25 mb-25">
+                                <c:forEach items="${requestScope.product.comments}" var="c">
+                                    <div class="review_item">
+                                        <div class="media">
+                                            <div class="d-flex">
+                                                <img src="${c.user.avatarURL}" alt="" width="70px" height="70px"/>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4>${c.user.fullname}</h4>
+                                                <h5><fmt:formatDate pattern="dd-MMM-yyy HH:MM:ss" value = "${c.cmtDate}" /></h5>
+                                            </div>
+                                        </div>
+                                        <p>${c.comment}</p>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                            <ul class="pagination"></ul>
+                        </div>
                     </div>
+                </div>
                 </div>
             </section>
             <!-- Product Description Area End-->
@@ -216,10 +216,11 @@
             $(window).load(function () {
                   $('.flexslider').flexslider({
                         animation: "slide",
-                        controlNav: "thumbnails",
-                    directionNav: false
+                        controlNav: "thumbnails"
                   });
             });
         </script>
+        <script src="assets/js/pagger.js"></script>
+        <script>pagger('pagination', ${requestScope.pageIndex}, ${requestScope.totalPages}, 2, ${requestScope.pid});</script>
     </body>
 </html>

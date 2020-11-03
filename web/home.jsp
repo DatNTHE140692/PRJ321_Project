@@ -33,24 +33,74 @@
                 </div>
             </div>
             <!-- slider Area End-->
-            <!--? Visit Our Tailor Start -->
-            <div class="visit-tailor-area fix">
-                <!--Right Contents  -->
-                <div class="tailor-offers"></div>
-                <!-- left Contents -->
-                <div class="tailor-details">
-                    <h2>Best Furniture<br> manufacturer</h2>
-                    <p>Suspendisse varius enim in eros elementum 
-                        tristique. Duis cursus, mi quis viverra ornare, eros 
-                        dolor interdum nulla.</p>
-                    <p class="pera-bottom">Suspendisse varius enim in eros elementum 
-                        tristique. Duis cursus, mi quis viverra ornare, eros 
-                        dolor interdum nulla.</p>
-                    <a href="#" class="btn">Discover More</a>
-                </div>
+            <div class="featured-categories mt-30 mb-30">
+                <div class="container-fluid">
+                    <div class="row text-center">
+                        <div class="col-lg-12"><div class="section-tittle"><h2>Featured Categories</h2></div></div>
+                        
+                        <div class="col-lg-3 sh-woocommerce-categories-item">
+                            <a href="https://jevelin.shufflehound.com/shop1/product-category/clothings/">
+                                <div class="sh-ratio">
+                                    <div class="sh-ratio-container">
+                                        <div class="sh-ratio-content sh-woocommerce-categories-content">
+                                            <div class="sh-woocommerce-categories-thumb" style="background-image: url(https://cdn.jevelin.shufflehound.com/wp-content/uploads/sites/9/2016/11/img_2.jpg);"></div>
+                                            <h3>
+                                                Clothings <span class="sh-woocommerce-categories-count">5</span>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
 
+                        <div class="col-lg-3 sh-woocommerce-categories-item">
+                            <a href="https://jevelin.shufflehound.com/shop1/product-category/accessories/">
+                                <div class="sh-ratio">
+                                    <div class="sh-ratio-container">
+                                        <div class="sh-ratio-content sh-woocommerce-categories-content">
+                                            <div class="sh-woocommerce-categories-thumb" style="background-image: url(https://cdn.jevelin.shufflehound.com/wp-content/uploads/sites/9/2016/11/img_1.jpg);"></div>
+                                            <h3>
+                                                Accessories <span class="sh-woocommerce-categories-count">4</span>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-lg-3 sh-woocommerce-categories-item">
+                            <a href="https://jevelin.shufflehound.com/shop1/product-category/clothings/">
+                                <div class="sh-ratio">
+                                    <div class="sh-ratio-container">
+                                        <div class="sh-ratio-content sh-woocommerce-categories-content">
+                                            <div class="sh-woocommerce-categories-thumb" style="background-image: url(https://cdn.jevelin.shufflehound.com/wp-content/uploads/sites/9/2016/11/img_2.jpg);"></div>
+                                            <h3>
+                                                Clothings <span class="sh-woocommerce-categories-count">5</span>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-lg-3 sh-woocommerce-categories-item">
+                            <a href="https://jevelin.shufflehound.com/shop1/product-category/accessories/">
+                                <div class="sh-ratio">
+                                    <div class="sh-ratio-container">
+                                        <div class="sh-ratio-content sh-woocommerce-categories-content">
+                                            <div class="sh-woocommerce-categories-thumb" style="background-image: url(https://cdn.jevelin.shufflehound.com/wp-content/uploads/sites/9/2016/11/img_1.jpg);"></div>
+                                            <h3>
+                                                Accessories <span class="sh-woocommerce-categories-count">4</span>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <!-- Visit Our Tailor End -->
             <!--? instagram-social start -->
             <div class="instagram-area">
                 <div class="container-fluid">

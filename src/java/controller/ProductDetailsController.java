@@ -35,13 +35,24 @@ public class ProductDetailsController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String pid = request.getParameter("id");
-        if (pid != null && !pid.trim().isEmpty()) {
+        if (pid != null || !pid.trim().isEmpty()) {
+            String pageId = request.getParameter("page");
+            if (pageId == null || pageId.trim().isEmpty()) {
+                pageId = "1";
+            }
             int id = Integer.parseInt(pid);
+            int pageIndex = Integer.parseInt(pageId);
+            final int pageSize = 5;
             CommentDAO commentDB = new CommentDAO();
-            ArrayList<Comment> comments = commentDB.getCommentsByProID(id);
+            ArrayList<Comment> comments = commentDB.getCommentsByProID(id, pageIndex, pageSize);
+            int totalRecords = commentDB.getTotalComments(id);
+            int totalPages = (totalRecords % pageSize == 0) ? (totalRecords / pageSize) : (totalRecords / pageSize + 1);
             ProductDAO productDB = new ProductDAO();
             Product product = productDB.getProductByID(id);
             product.setComments(comments);
+            request.setAttribute("pid", id);
+            request.setAttribute("pageIndex", pageIndex);
+            request.setAttribute("totalPages", totalPages);
             request.setAttribute("product", product);
             request.getRequestDispatcher("product_details.jsp").forward(request, response);
         } else {

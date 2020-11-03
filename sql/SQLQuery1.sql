@@ -1,3 +1,5 @@
+DROP DATABASE Furniture
+GO
 CREATE DATABASE Furniture
 GO
 USE Furniture
@@ -32,23 +34,25 @@ CREATE TABLE Products
 
 CREATE TABLE Product_Categories
 (
-	cid INT FOREIGN KEY REFERENCES dbo.Categories(cid),
 	pid INT FOREIGN KEY REFERENCES dbo.Products(pid),
-	PRIMARY KEY(cid, pid)
+	cid INT FOREIGN KEY REFERENCES dbo.Categories(cid),
+	PRIMARY KEY(pid, cid)
 )
 
 CREATE TABLE Product_Images
 (
+	imgid INT PRIMARY KEY IDENTITY(1,1),
 	pid INT FOREIGN KEY REFERENCES dbo.Products(pid),
 	imageURL VARCHAR(MAX) NOT NULL,
 )
 
 CREATE TABLE Product_Comments 
 (
-	uid INT FOREIGN KEY REFERENCES dbo.Users(uid),
+	cmtid INT PRIMARY KEY IDENTITY(1,1),
 	pid INT FOREIGN KEY REFERENCES dbo.Products(pid),
+	uid INT FOREIGN KEY REFERENCES dbo.Users(uid),
+	cdate DATETIME,
 	comment VARCHAR(MAX) NOT NULL,
-	PRIMARY KEY(uid, pid)
 )
 
 CREATE TABLE Contact 

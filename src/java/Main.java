@@ -14,6 +14,6 @@ import dal.ProductDAO;
 public class Main {
     public static void main(String[] args) {
         ProductDAO productDB = new ProductDAO();
-        System.out.println(productDB.get4LatestProducts());
+        System.out.println(productDB.getStoreProducts(1, 9));
     }
 }

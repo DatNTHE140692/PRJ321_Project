@@ -135,4 +135,43 @@ public class ProductDAO extends BaseDAO {
         }
         return products;
     }
+
+    public ArrayList<Product> getStoreProducts(int pageIndex, int pageSize) {
+        ArrayList<Product> products = new ArrayList<>();
+        try {
+            String sql = "WITH r AS (SELECT ROW_NUMBER() OVER (ORDER BY pid DESC) rownum, pid, pname, price, pthumbnail FROM Products) SELECT * FROM r WHERE r.rownum >= (? - 1) * ? + 1 AND r.rownum <= ? * ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, pageIndex);
+            st.setInt(2, pageSize);
+            st.setInt(3, pageIndex);
+            st.setInt(4, pageSize);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getInt("pid"));
+                product.setName(rs.getString("pname"));
+                product.setPrice(rs.getFloat("price"));
+                product.setThumbnail(rs.getString("pthumbnail"));
+                products.add(product);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products;
+    }
+
+    public int getTotalProducts() {
+        int cnt = 0;
+        try {
+            String sql = "SELECT COUNT(*) total FROM Products";
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                cnt = rs.getInt("total");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cnt;
+    }
 }

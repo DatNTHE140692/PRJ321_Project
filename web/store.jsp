@@ -88,131 +88,29 @@
                         <!--?  Right content -->
                         <div class="col-xl-9 col-lg-9 col-md-9">
                             <!--? Pagination Start -->
-                            <nav class="mb-50">
-                                <ul class="pagination pagination-lg">
-                                    <li class="page-item"><a class="page-link" href="#">First</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Last</a></li>
-                                </ul>
-                            </nav>
+                            <nav class="mb-50"><ul class="pagination"></ul></nav>
                             <!--? Pagination End -->
                             <!--? New Arrival Start -->
                             <div class="new-arrival new-arrival3">
                                 <div class="row">
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="single-new-arrival mb-50 text-center">
-                                            <div class="popular-img">
-                                                <img src="assets/img/gallery/popular1.png" alt="">
-                                            </div>
-                                            <div class="popular-caption">
-                                                <h3><a href="#">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
-                                                <span>$367</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="single-new-arrival mb-50 text-center">
-                                            <div class="popular-img">
-                                                <img src="assets/img/gallery/popular5.png" alt="">
-                                            </div>
-                                            <div class="popular-caption">
-                                                <h3><a href="#">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
-                                                <span>$367</span>
+                                    <c:forEach items="${requestScope.products}" var="p">
+                                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                                            <div class="single-new-arrival mb-50 text-center">
+                                                <div class="popular-img">
+                                                    <img src="${p.thumbnail}" alt="">
+                                                </div>
+                                                <div class="popular-caption">
+                                                    <h3><a href="product_details?id=${p.id}">${p.name}</a></h3>
+                                                    <span>$${p.price}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="single-new-arrival mb-50 text-center">
-                                            <div class="popular-img">
-                                                <img src="assets/img/gallery/popular6.png" alt="">
-                                            </div>
-                                            <div class="popular-caption">
-                                                <h3><a href="#">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
-                                                <span>$367</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="single-new-arrival mb-50 text-center">
-                                            <div class="popular-img">
-                                                <img src="assets/img/gallery/popular7.png" alt="">
-                                            </div>
-                                            <div class="popular-caption">
-                                                <h3><a href="#">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
-                                                <span>$367</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="single-new-arrival mb-50 text-center">
-                                            <div class="popular-img">
-                                                <img src="assets/img/gallery/popular8.png" alt="">
-                                            </div>
-                                            <div class="popular-caption">
-                                                <h3><a href="#">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
-                                                <span>$367</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="single-new-arrival mb-50 text-center">
-                                            <div class="popular-img">
-                                                <img src="assets/img/gallery/popular9.png" alt="">
-                                            </div>
-                                            <div class="popular-caption">
-                                                <h3><a href="#">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
-                                                <span>$367</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="single-new-arrival mb-50 text-center">
-                                            <div class="popular-img">
-                                                <img src="assets/img/gallery/popular2.png" alt="">
-                                            </div>
-                                            <div class="popular-caption">
-                                                <h3><a href="#">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
-                                                <span>$367</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="single-new-arrival mb-50 text-center">
-                                            <div class="popular-img">
-                                                <img src="assets/img/gallery/popular3.png" alt="">
-                                            </div>
-                                            <div class="popular-caption">
-                                                <h3><a href="#">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
-                                                <span>$367</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="single-new-arrival mb-50 text-center">
-                                            <div class="popular-img">
-                                                <img src="assets/img/gallery/popular4.png" alt="">
-                                            </div>
-                                            <div class="popular-caption">
-                                                <h3><a href="#">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
-                                                <span>$367</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                             <!--? New Arrival End -->
                             <!--? Pagination Start -->
-                            <nav>
-                                <ul class="pagination pagination-lg">
-                                    <li class="page-item"><a class="page-link" href="#">First</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Last</a></li>
-                                </ul>
-                            </nav>
+                            <nav><ul class="pagination"></ul></nav>
                             <!--? Pagination End -->
                         </div>
                     </div>
@@ -282,5 +180,7 @@
         <!-- js import Start -->
         <%@ include file="components/js.jsp" %>
         <!-- js import End -->
+        <script src="assets/js/pagger.js"></script>
+        <script>paggerBasic('pagination', ${requestScope.pageIndex}, ${requestScope.totalPages}, 2);</script>
     </body>
 </html>

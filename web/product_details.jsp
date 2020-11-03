@@ -122,7 +122,7 @@
                             </div>
                         </div>
                         <div class="col-lg-12">
-                            <nav><ul class="pagination"></ul></nav>
+                            <ul class="pagination"></ul>
                             <div class="comment_list mt-25 mb-25">
                                 <c:forEach items="${requestScope.product.comments}" var="c">
                                     <div class="review_item">
@@ -139,7 +139,7 @@
                                     </div>
                                 </c:forEach>
                             </div>
-                            <nav><ul class="pagination"></ul></nav>
+                            <ul class="pagination"></ul>
                         </div>
                     </div>
                 </div>

@@ -63,3 +63,14 @@ CREATE TABLE Contact
 	[subject] VARCHAR(150) NOT NULL,
 	[message] VARCHAR(max) NOT NULL
 )
+
+SELECT p.pid, p.pname, p.price, p.pshortdesc, p.pdesc, p.available, ISNULL(c.cid, -1) cid, c.cname, ISNULL(pi.imgid, -1) imgid, pi.imageURL FROM dbo.Products p LEFT OUTER JOIN dbo.Product_Categories pc ON pc.pid = p.pid LEFT OUTER JOIN dbo.Categories c ON c.cid = pc.cid  LEFT OUTER JOIN dbo.Product_Images pi ON pi.pid = p.pid WHERE p.pid = ?
+
+SELECT ROW_NUMBER() OVER(ORDER BY pc.cmtid), pc.cmtid, pc.cdate, pc.comment, u.uid, u.fullname, u.avatarURL FROM dbo.Product_Comments pc INNER JOIN dbo.Users u ON u.uid = pc.uid WHERE pc.pid = ? ORDER BY pc.cdate DESC
+
+INSERT INTO dbo.Product_Comments(pid, uid, cdate, comment) VALUES (?, ?, GETDATE(), ?)
+SELECT * FROM dbo.Users
+
+WITH r AS(SELECT ROW_NUMBER() OVER(ORDER BY pc.cdate DESC) AS rownum, pc.cmtid, pc.cdate, pc.comment, u.uid, u.fullname, u.avatarURL FROM dbo.Product_Comments pc INNER JOIN dbo.Users u ON u.uid = pc.uid WHERE pid = 3)SELECT * FROM r ORDER BY r.cdate DESC
+
+SELECT COUNT(*) total FROM dbo.Product_Comments WHERE pid = 3

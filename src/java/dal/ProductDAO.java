@@ -15,7 +15,6 @@ import model.Category;
 import model.Comment;
 import model.Image;
 import model.Product;
-import model.User;
 
 /**
  *
@@ -114,4 +113,5 @@ public class ProductDAO extends BaseDAO {
         }
         return null;
     }
+    
 }

@@ -87,6 +87,17 @@
                         </div>
                         <!--?  Right content -->
                         <div class="col-xl-9 col-lg-9 col-md-9">
+                            <!--? Pagination Start -->
+                            <nav class="mb-50">
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="#">First</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Last</a></li>
+                                </ul>
+                            </nav>
+                            <!--? Pagination End -->
                             <!--? New Arrival Start -->
                             <div class="new-arrival new-arrival3">
                                 <div class="row">
@@ -190,14 +201,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Button -->
-                                <div class="row justify-content-center">
-                                    <div class="room-btn mt-20">
-                                        <a href="store.jsp" class="border-btn">Browse More</a>
-                                    </div>
-                                </div>
                             </div>
                             <!--? New Arrival End -->
+                            <!--? Pagination Start -->
+                            <nav>
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="#">First</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Last</a></li>
+                                </ul>
+                            </nav>
+                            <!--? Pagination End -->
                         </div>
                     </div>
                 </div>

@@ -89,7 +89,7 @@
                         <div class="col-xl-9 col-lg-9 col-md-9">
                             <!--? Pagination Start -->
                             <nav class="mb-50">
-                                <ul class="pagination">
+                                <ul class="pagination pagination-lg">
                                     <li class="page-item"><a class="page-link" href="#">First</a></li>
                                     <li class="page-item"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item"><a class="page-link" href="#">2</a></li>
@@ -205,7 +205,7 @@
                             <!--? New Arrival End -->
                             <!--? Pagination Start -->
                             <nav>
-                                <ul class="pagination">
+                                <ul class="pagination pagination-lg">
                                     <li class="page-item"><a class="page-link" href="#">First</a></li>
                                     <li class="page-item"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item"><a class="page-link" href="#">2</a></li>

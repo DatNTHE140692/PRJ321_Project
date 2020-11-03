@@ -23,7 +23,7 @@
                                             dolor interdum nulla.</p>
                                         <!-- Hero-btn -->
                                         <div class="hero__btn" data-animation="fadeInUp" data-delay=".7s">
-                                            <a href="industries.jsp" class="btn hero-btn">Discover More</a>
+                                            <a href="store.jsp" class="btn hero-btn">Discover More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -33,76 +33,67 @@
                 </div>
             </div>
             <!-- slider Area End-->
-            <!-- featured categories Start -->
-            <div class="featured-categories mt-30 mb-30">
-                <div class="container-fluid">
-                    <div class="row text-center">
-                        <div class="col-lg-12"><div class="section-tittle"><h2>Featured Categories</h2></div></div>
-
-                        <div class="col-lg-3 sh-woocommerce-categories-item">
-                            <a href="#">
-                                <div class="sh-ratio">
-                                    <div class="sh-ratio-container">
-                                        <div class="sh-ratio-content sh-woocommerce-categories-content">
-                                            <div class="sh-woocommerce-categories-thumb" style="background-image: url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');"></div>
-                                            <h3>
-                                                Clothings <span class="sh-woocommerce-categories-count">5</span>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+            <!--? Properties Start -->
+            <section class="properties new-arrival fix">
+                <div class="container">
+                    <!-- Section tittle -->
+                    <div class="row justify-content-center">
+                        <div class="col-xl-12 col-lg-8 col-md-10">
+                            <div class="section-tittle mb-60 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInUp;">
+                                <h2>Lastest products</h2>
+                                <p>Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
+                            </div>
                         </div>
-
-                        <div class="col-lg-3 sh-woocommerce-categories-item">
-                            <a href="https://jevelin.shufflehound.com/shop1/product-category/accessories/">
-                                <div class="sh-ratio">
-                                    <div class="sh-ratio-container">
-                                        <div class="sh-ratio-content sh-woocommerce-categories-content">
-                                            <div class="sh-woocommerce-categories-thumb" style="background-image: url(https://cdn.jevelin.shufflehound.com/wp-content/uploads/sites/9/2016/11/img_1.jpg);"></div>
-                                            <h3>
-                                                Accessories <span class="sh-woocommerce-categories-count">4</span>
-                                            </h3>
-                                        </div>
-                                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="single-new-arrival mb-50 text-center">
+                                <div class="popular-img">
+                                    <img src="assets/img/gallery/popular1.png" alt="">
                                 </div>
-                            </a>
-                        </div>
-
-                        <div class="col-lg-3 sh-woocommerce-categories-item">
-                            <a href="https://jevelin.shufflehound.com/shop1/product-category/clothings/">
-                                <div class="sh-ratio">
-                                    <div class="sh-ratio-container">
-                                        <div class="sh-ratio-content sh-woocommerce-categories-content">
-                                            <div class="sh-woocommerce-categories-thumb" style="background-image: url(https://cdn.jevelin.shufflehound.com/wp-content/uploads/sites/9/2016/11/img_2.jpg);"></div>
-                                            <h3>
-                                                Clothings <span class="sh-woocommerce-categories-count">5</span>
-                                            </h3>
-                                        </div>
-                                    </div>
+                                <div class="popular-caption">
+                                    <h3><a href="product_details.html">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
+                                    <span>$367</span>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-
-                        <div class="col-lg-3 sh-woocommerce-categories-item">
-                            <a href="https://jevelin.shufflehound.com/shop1/product-category/accessories/">
-                                <div class="sh-ratio">
-                                    <div class="sh-ratio-container">
-                                        <div class="sh-ratio-content sh-woocommerce-categories-content">
-                                            <div class="sh-woocommerce-categories-thumb" style="background-image: url(https://cdn.jevelin.shufflehound.com/wp-content/uploads/sites/9/2016/11/img_1.jpg);"></div>
-                                            <h3>
-                                                Accessories <span class="sh-woocommerce-categories-count">4</span>
-                                            </h3>
-                                        </div>
-                                    </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="single-new-arrival mb-50 text-center">
+                                <div class="popular-img">
+                                    <img src="assets/img/gallery/popular2.png" alt="">
                                 </div>
-                            </a>
+                                <div class="popular-caption">
+                                    <h3><a href="product_details.html">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
+                                    <span>$367</span>
+                                </div>
+                            </div>
                         </div>
-
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="single-new-arrival mb-50 text-center">
+                                <div class="popular-img">
+                                    <img src="assets/img/gallery/popular3.png" alt="">
+                                </div>
+                                <div class="popular-caption">
+                                    <h3><a href="product_details.html">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
+                                    <span>$367</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="single-new-arrival mb-50 text-center">
+                                <div class="popular-img">
+                                    <img src="assets/img/gallery/popular3.png" alt="">
+                                </div>
+                                <div class="popular-caption">
+                                    <h3><a href="product_details.html">Bly Microfiber / Microsuede 56" Armless Loveseat</a></h3>
+                                    <span>$367</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- featured categories End -->
+            </section>
+            <!--? Properties End -->
             <!--? instagram-social start -->
             <div class="instagram-area">
                 <div class="container-fluid">
@@ -113,7 +104,7 @@
                                     <img src="assets/img/gallery/insta.png" alt="">
                                     <h2>Get Inspired with Instagram</h2>
                                     <P class="mb-35">Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</P>
-                                    <a href="product.jsp" class="border-btn">Discover More</a>
+                                    <a href="store" class="border-btn">Discover More</a>
                                 </div>
                             </div>
                         </div>

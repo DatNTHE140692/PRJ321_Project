@@ -9740,7 +9740,8 @@ b,sup,sub,u,del {
 #store_search .search_input {
     border: 0;
     padding: 5px;
-    background-color: #d8e5eb
+    background-color: #d8e5eb;
+    height: 45px;
 }
 
 #store_search .search_btn {

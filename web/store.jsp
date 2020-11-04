@@ -44,8 +44,7 @@
                     </div>
                     <div class="row">
                         <!--? Left content -->
-                        <div class="col-xl-3 col-lg-3 col-md-3">
-                            <!-- Job Search start -->
+                        <div class="col-xl-4 col-lg-4 col-md-3">
                             <div class="category-listing mb-50">
                                 <div class="categories-wrapper">
                                     <div class="row">
@@ -57,8 +56,46 @@
                                     </div>
                                     <div class="col-12 mt-10">
                                         <form action="search" class="row" id="store_search">
-                                            <input type="text" name="keyword" class="col-9 search_input"/>
+                                            <input type="text" name="keyword" class="col-9 search_input" placeholder="Product Name" />
                                             <button class="col-3 search_btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Job Search start -->
+                            <div class="category-listing mb-50">
+                                <div class="categories-wrapper">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="small-tittle">
+                                                <h2><i class="fas fa-filter"></i> Filter Product</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mt-10">
+                                        <form action="search" class="row" id="store_search">
+                                            <div class="form-group mb-20 w-100">
+                                                <label for="name">Name:</label>
+                                                <input type="text" name="keyword" class="search_input w-100" placeholder="Product Name"/>
+                                            </div>
+                                            <label for="category">Category:</label>
+                                            <div class="select-categories w-100">
+                                                <select name="category">
+                                                    <option value="-1">All</option>
+                                                    <c:forEach items="${requestScope.categories}" var="c">
+                                                        <option value="${c.id}">${c.name}</option>
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
+                                            <div class="mb-20 w-100">
+                                                <label for="category">Price From:</label>
+                                                <input type="number" name="pFrom" class="search_input w-100" min="0" value="0"/>
+                                            </div>
+                                            <div class="mb-20 w-100">
+                                                <label for="category">Price To:</label>
+                                                <input type="number" name="pTo" class="search_input w-100" min="0" value="500"/>
+                                            </div>
+                                            <button class="genric-btn info w-100" type="submit">SEARCH</button>
                                         </form>
                                     </div>
                                 </div>
@@ -70,12 +107,13 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="small-tittle">
-                                                <h2><i class="fa fa-bars" aria-hidden="true"></i> Product Category</h2>
+                                                <h2><i class="fa fa-bars" aria-hidden="true"></i> Product Categories</h2>
                                             </div>
                                         </div>
                                         <div class="col-12 mt-20">
                                             <ul class="unordered-list">
-                                                <c:forEach items="${requestScope.categories}" var="c">
+                                                <li><a href="store" style="color: black">All</a></li>
+                                                    <c:forEach items="${requestScope.categories}" var="c">
                                                     <li><a href="?cid=${c.id}" style="color: black">${c.name}</a></li>
                                                     </c:forEach>
                                             </ul>
@@ -86,32 +124,48 @@
                             <!-- Job Category Listing End -->
                         </div>
                         <!--?  Right content -->
-                        <div class="col-xl-9 col-lg-9 col-md-9">
-                            <!--? Pagination Start -->
-                            <nav class="mb-50"><ul class="pagination"></ul></nav>
-                            <!--? Pagination End -->
-                            <!--? New Arrival Start -->
-                            <div class="new-arrival new-arrival3">
-                                <div class="row">
-                                    <c:forEach items="${requestScope.products}" var="p">
-                                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-                                            <div class="single-new-arrival mb-50 text-center">
-                                                <div class="popular-img">
-                                                    <img src="${p.thumbnail}" alt="">
-                                                </div>
-                                                <div class="popular-caption">
-                                                    <h3><a href="product_details?id=${p.id}">${p.name}</a></h3>
-                                                    <span>$${p.price}</span>
-                                                </div>
-                                            </div>
+                        <div class="col-xl-8 col-lg-8 col-md-9">
+                            <c:choose>
+                                <c:when test="${not empty requestScope.products}">
+                                    <!--? Pagination Start -->
+                                    <div class="col-lg-12">
+                                        <div class="count-job mb-20">
+                                            <span>${requestScope.totalRecords} Product(s) found</span>
+                                            <nav><ul class="pagination"></ul></nav>
                                         </div>
-                                    </c:forEach>
-                                </div>
-                            </div>
-                            <!--? New Arrival End -->
-                            <!--? Pagination Start -->
-                            <nav><ul class="pagination"></ul></nav>
-                            <!--? Pagination End -->
+                                    </div>
+                                    <!--? Pagination End -->
+                                    <!--? New Arrival Start -->
+                                    <div class="new-arrival new-arrival3">
+                                        <div class="row">
+                                            <c:forEach items="${requestScope.products}" var="p">
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                                    <div class="single-new-arrival mb-50 text-center">
+                                                        <div class="popular-img">
+                                                            <a href="product_details?id=${p.id}">
+                                                                <img src="${p.thumbnail}" alt="">
+                                                            </a>
+                                                        </div>
+                                                        <div class="popular-caption">
+                                                            <h3><a href="product_details?id=${p.id}">${p.name}</a></h3>
+                                                            <span>$${p.price}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </c:forEach>
+                                        </div>
+                                    </div>
+                                    <!--? New Arrival End -->
+                                    <!--? Pagination Start -->
+                                    <nav><ul class="pagination"></ul></nav>
+                                    <!--? Pagination End -->
+                                </c:when>
+                                <c:otherwise>
+                                    <div class="row">
+                                        <label>Category have no product!</label>
+                                    </div>
+                                </c:otherwise>
+                            </c:choose>
                         </div>
                     </div>
                 </div>
@@ -181,6 +235,13 @@
         <%@ include file="components/js.jsp" %>
         <!-- js import End -->
         <script src="assets/js/pagger.js"></script>
-        <script>paggerBasic('pagination', ${requestScope.pageIndex}, ${requestScope.totalPages}, 2);</script>
+        <c:choose>
+            <c:when test="${requestScope.cid eq null}">
+                <script>paggerBasic('pagination', ${requestScope.pageIndex}, ${requestScope.totalPages}, 2);</script>
+            </c:when>
+            <c:otherwise>
+                <script>pagger('pagination', 'cid', ${requestScope.cid}, ${requestScope.pageIndex}, ${requestScope.totalPages}, 1);</script>
+            </c:otherwise>
+        </c:choose>
     </body>
 </html>

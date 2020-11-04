@@ -38,17 +38,28 @@ public class StoreController extends HttpServlet {
         if (page == null || page.trim().isEmpty()) {
             page = "1";
         }
+        int pageIndex = Integer.parseInt(page);
+        int pageSize = 6;
+        int totalRecords = -1;
+        ProductDAO productDB = new ProductDAO();
+        ArrayList<Product> products = new ArrayList<>();
+        String cateId = request.getParameter("cid");
+        if (cateId == null || cateId.trim().isEmpty()) {
+            totalRecords = productDB.getTotalProducts();
+            products = productDB.getStoreProducts(pageIndex, pageSize);
+        } else {
+            int cid = Integer.parseInt(cateId);
+            totalRecords = productDB.getTotalProductsByCID(cid);
+            products = productDB.getProductsByCID(cid, pageIndex, pageSize);
+            request.setAttribute("cid", cid);
+        }
+        int totalPages = (totalRecords % pageSize == 0) ? (totalRecords / pageSize) : (totalRecords / pageSize + 1);
+        request.setAttribute("pageIndex", pageIndex);
+        request.setAttribute("totalRecords", totalRecords);
+        request.setAttribute("totalPages", totalPages);
+        request.setAttribute("products", products);
         CategoryDAO categoryDB = new CategoryDAO();
         ArrayList<Category> categories = categoryDB.getCategories();
-        int pageIndex = Integer.parseInt(page);
-        int pageSize = 9;
-        ProductDAO productDB = new ProductDAO();
-        ArrayList<Product> products = productDB.getStoreProducts(pageIndex, pageSize);
-        int totalRecords = productDB.getTotalProducts();
-        int totalPages = (totalRecords % pageSize == 0) ? (totalRecords / pageSize) : (totalRecords / pageSize + 1);
-        request.setAttribute("products", products);
-        request.setAttribute("pageIndex", pageIndex);
-        request.setAttribute("totalPages", totalPages);
         request.setAttribute("categories", categories);
         request.getRequestDispatcher("store.jsp").forward(request, response);
     }

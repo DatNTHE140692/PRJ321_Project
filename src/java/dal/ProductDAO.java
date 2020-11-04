@@ -174,4 +174,45 @@ public class ProductDAO extends BaseDAO {
         }
         return cnt;
     }
+
+    public ArrayList<Product> getProductsByCID(int cid, int pageIndex, int pageSize) {
+        ArrayList<Product> products = new ArrayList<>();
+        try {
+            String sql = "WITH r AS (SELECT ROW_NUMBER() OVER (ORDER BY p.pid DESC) rownum, p.pid, p.pname, p.price, p.pthumbnail  FROM dbo.Product_Categories pc INNER JOIN dbo.Products p ON p.pid = pc.pid WHERE pc.cid = ?) SELECT * FROM r WHERE r.rownum >= (? - 1) * ? + 1 AND r.rownum <= ? * ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, cid);
+            st.setInt(2, pageIndex);
+            st.setInt(3, pageSize);
+            st.setInt(4, pageIndex);
+            st.setInt(5, pageSize);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getInt("pid"));
+                product.setName(rs.getString("pname"));
+                product.setPrice(rs.getFloat("price"));
+                product.setThumbnail(rs.getString("pthumbnail"));
+                products.add(product);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products;
+    }
+
+    public int getTotalProductsByCID(int cid) {
+        int cnt = 0;
+        try {
+            String sql = "SELECT COUNT(*) total FROM dbo.Product_Categories WHERE cid = ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, cid);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                cnt = rs.getInt("total");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cnt;
+    }
 }

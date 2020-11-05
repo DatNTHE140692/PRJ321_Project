@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="components/head.jsp" %> %>
+    <%@include file="components/head.jsp" %>
     <body>
         <%@include file="components/header.jsp" %>
         <main>

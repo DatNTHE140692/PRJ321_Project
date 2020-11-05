@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="col-12 mt-10">
                                         <form action="search" class="row" id="store_search">
-                                            <input type="text" name="keyword" class="col-9 search_input" placeholder="Product Name" />
+                                            <input type="text" name="keyword" class="col-9 search_input" placeholder="Product Name" required />
                                             <button class="col-3 search_btn"><i class="fa fa-search" aria-hidden="true"></i></button>
                                         </form>
                                     </div>
@@ -240,7 +240,7 @@
                 <script>paggerBasic('pagination', ${requestScope.pageIndex}, ${requestScope.totalPages}, 2);</script>
             </c:when>
             <c:otherwise>
-                <script>pagger('pagination', 'cid', ${requestScope.cid}, ${requestScope.pageIndex}, ${requestScope.totalPages}, 1);</script>
+                <script>pagger('pagination', 'cid', ${requestScope.cid}, ${requestScope.pageIndex}, ${requestScope.totalPages}, 2);</script>
             </c:otherwise>
         </c:choose>
     </body>

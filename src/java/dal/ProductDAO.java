@@ -215,4 +215,45 @@ public class ProductDAO extends BaseDAO {
         }
         return cnt;
     }
+
+    public ArrayList<Product> getProductsByKeyword(String keyword, int pageIndex, int pageSize) {
+        ArrayList<Product> products = new ArrayList<>();
+        try {
+            String sql = "WITH r AS (SELECT ROW_NUMBER() OVER (ORDER BY pid) rownum, * FROM Products WHERE pname LIKE '%' + ? + '%') SELECT * FROM r WHERE r.rownum >= (? - 1) * ? + 1 AND r.rownum <= ? * ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, keyword);
+            st.setInt(2, pageIndex);
+            st.setInt(3, pageSize);
+            st.setInt(4, pageIndex);
+            st.setInt(5, pageSize);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getInt("pid"));
+                product.setName(rs.getString("pname"));
+                product.setPrice(rs.getFloat("price"));
+                product.setThumbnail(rs.getString("pthumbnail"));
+                products.add(product);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products;
+    }
+
+    public int getTotalProductsByKeyword(String keyword) {
+        int count = 0;
+        try {
+            String sql = "SELECT COUNT(*) total FROM Products WHERE pname LIKE '%' + ? + '%'";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, keyword);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt("total");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return count;
+    }
 }

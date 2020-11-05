@@ -5,11 +5,14 @@
  */
 package controller;
 
+import dal.ProductDAO;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Product;
 
 /**
  *
@@ -29,8 +32,21 @@ public class SearchController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String keyword = request.getParameter("search").trim();
-
+        String keyword = request.getParameter("keyword");
+        String page = request.getParameter("page");
+        page = (page == null || page.trim().isEmpty()) ? "1" : page;
+        int pageIndex = Integer.parseInt(page);
+        int pageSize = 9;
+        ProductDAO productDB = new ProductDAO();
+        ArrayList<Product> products = productDB.getProductsByKeyword(keyword, pageIndex, pageSize);
+        int totalRecords = productDB.getTotalProductsByKeyword(keyword);
+        int totalPages = totalRecords % pageSize == 0 ? totalRecords / pageSize : totalRecords / pageSize + 1;
+        request.setAttribute("products", products);
+        request.setAttribute("totalPages", totalPages);
+        request.setAttribute("pageIndex", pageIndex);
+        request.setAttribute("keyword", keyword);
+        request.setAttribute("totalRecords", totalRecords);
+        request.getRequestDispatcher("search.jsp").forward(request, response);
     }
 
     /**

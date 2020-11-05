@@ -32,7 +32,7 @@
                                 <li>
                                     <!-- Search Box -->
                                     <form action="search" class="form-box f-right ">
-                                        <input type="text" name="search" placeholder="Search products">
+                                        <input type="text" name="keyword" placeholder="Search products" required />
                                         <div class="search-icon">
                                             <i class="ti-search"></i>
                                         </div>

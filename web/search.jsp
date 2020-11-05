@@ -87,6 +87,6 @@
         <%@include file="components/js.jsp" %>
         <%@include file="components/footer.jsp" %>
         <script src="assets/js/pagger.js"></script>
-        <script>pagger('pagination', 'keyword', '${requestScope.keyword}', ${requestScope.pageIndex}, ${requestScope.totalPages}, 2)</script>
+        <script>pagger('pagination', 'keyword', '${requestScope.keyword}', ${requestScope.pageIndex}, ${requestScope.totalPages}, 2);</script>
     </body>
 </html>

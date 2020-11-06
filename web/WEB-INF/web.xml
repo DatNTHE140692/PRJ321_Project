@@ -89,7 +89,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProductDetailsController</servlet-name>
-        <url-pattern>/product_details</url-pattern>
+        <url-pattern>/product</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CartController</servlet-name>

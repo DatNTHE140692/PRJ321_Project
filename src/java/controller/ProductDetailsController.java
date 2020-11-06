@@ -54,7 +54,7 @@ public class ProductDetailsController extends HttpServlet {
             request.setAttribute("pageIndex", pageIndex);
             request.setAttribute("totalPages", totalPages);
             request.setAttribute("product", product);
-            request.getRequestDispatcher("product_details.jsp").forward(request, response);
+            request.getRequestDispatcher("product.jsp").forward(request, response);
         } else {
             response.sendRedirect("store");
         }

@@ -40,7 +40,7 @@
                     <div class="row justify-content-center">
                         <div class="col-xl-12 col-lg-8 col-md-10">
                             <div class="section-tittle mb-60 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInUp;">
-                                <h2>Lastest products</h2>
+                                <h2>Latest products</h2>
                                 <p>Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                                         <img src="${p.thumbnail}" alt="">
                                     </div>
                                     <div class="popular-caption">
-                                        <h3><a href="product_details?id=${p.id}">${p.name}</a></h3>
+                                        <h3><a href="product?id=${p.id}">${p.name}</a></h3>
                                         <span>$${p.price}</span>
                                     </div>
                                 </div>

@@ -38,7 +38,7 @@ public class CommentController extends BaseAuthController {
         CommentDAO commentDB = new CommentDAO();
         boolean isAdded = commentDB.addComment(comment);
         if (isAdded) {
-            response.sendRedirect("product_details?id=" + pid);
+            response.sendRedirect("product?id=" + pid);
         }
     }
 

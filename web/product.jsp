@@ -66,14 +66,16 @@
                                 </ul>
                                 <p>${requestScope.product.shortDesc}</p>
                                 <div class="card_area">
-                                    <div class="product_count d-inline-block">
-                                        <span class="inumber-decrement"> <i class="ti-minus"></i></span>
-                                        <input class="input-number" type="text" value="1" min="0" max="10">
-                                        <span class="number-increment"> <i class="ti-plus"></i></span>
-                                    </div>
-                                    <div class="add_to_cart">
-                                        <a href="#" class="btn"><i class="fas fa-cart-plus"></i> add to cart</a>
-                                    </div>
+                                    <form action="product?id=${requestScope.pid}" method="POST">
+                                        <div class="product_count d-inline-block">
+                                            <span class="inumber-decrement"> <i class="ti-minus"></i></span>
+                                            <input class="input-number" type="text" value="1" min="1" name="quantity"/>
+                                            <span class="number-increment"> <i class="ti-plus"></i></span>
+                                        </div>
+                                        <div class="add_to_cart">
+                                            <button type="submit" class="btn"><i class="fas fa-cart-plus"></i> add to cart</button>
+                                        </div>
+                                    </form>
                                     <div class="social_icon">
                                         <a href="#" class="fb"><i class="ti-facebook"></i></a>
                                         <a href="#" class="tw"><i class="ti-twitter-alt"></i></a>

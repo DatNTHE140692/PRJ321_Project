@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html class="no-js" lang="vi">
     <!-- head import Start -->
@@ -43,74 +44,69 @@
                                         <th scope="col">Price</th>
                                         <th scope="col">Quantity</th>
                                         <th scope="col">Total</th>
+                                        <th scope="col">Remove Item</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="media">
-                                                <div class="d-flex">
-                                                    <img src="assets/img/gallery/card1.png" alt="" />
-                                                </div>
-                                                <div class="media-body">
-                                                    <p>Minimalistic shop for multipurpose use</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h5>$360.00</h5>
-                                        </td>
-                                        <td>
-                                            <div class="product_count">
-                                                <span class="input-number-decrement"> <i class="ti-minus"></i></span>
-                                                <input class="input-number" type="text" value="1" min="0" max="10">
-                                                <span class="input-number-increment"> <i class="ti-plus"></i></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h5>$720.00</h5>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="media">
-                                                <div class="d-flex">
-                                                    <img src="assets/img/gallery/card2.png" alt="" />
-                                                </div>
-                                                <div class="media-body">
-                                                    <p>Minimalistic shop for multipurpose use</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h5>$360.00</h5>
-                                        </td>
-                                        <td>
-                                            <div class="product_count">
-                                                <span class="input-number-decrement"> <i class="ti-minus"></i></span>
-                                                <input class="input-number" type="text" value="1" min="0" max="10">
-                                                <span class="input-number-increment"> <i class="ti-plus"></i></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h5>$720.00</h5>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <h5>Subtotal</h5>
-                                        </td>
-                                        <td>
-                                            <h5>$2160.00</h5>
-                                        </td>
-                                    </tr>
+                                    <c:choose>
+                                        <c:when test="${not empty requestScope.productList}">
+                                            <c:set var = "total" value = "${0}"/>
+                                            <c:forEach items="${requestScope.productList}" var="p">
+                                                <tr>
+                                                    <td>
+                                                        <div class="media">
+                                                            <div class="d-flex">
+                                                                <img src="${p.thumbnail}" alt="" />
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <p>${p.name}</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <h5>$${p.price}</h5>
+                                                    </td>
+                                                    <td>
+                                                        <div class="product_count">
+                                                            <h5>${p.quantity}</h5>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <h5>$<fmt:formatNumber maxFractionDigits="3" value="${p.quantity * p.price}" /></h5>
+                                                    </td>
+                                                    <td><a href="" class="genric-btn danger"><i class="far fa-trash-alt"></i></a></td>
+                                                    <c:set var = "total" value = "${total + p.quantity * p.price}"/>
+                                                </tr>
+                                            </c:forEach>
+                                            <tr>
+                                                <td>
+                                                    <h5>Cart total:</h5>
+                                                </td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <h5>$<fmt:formatNumber maxFractionDigits="3" value="${total}" /></h5>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Your Cart is Empty</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </tbody>
                             </table>
                             <div class="checkout_btn_inner float-right">
                                 <a class="btn" href="store">Continue Shopping</a>
-                                <a class="btn checkout_btn" href="checkout">Proceed to checkout</a>
+                                <c:if test="${not empty requestScope.productList}">
+                                    <a class="btn checkout_btn" href="checkout">Proceed to checkout</a>
+                                </c:if>
                             </div>
                         </div>
                     </div>

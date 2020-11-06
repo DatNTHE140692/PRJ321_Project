@@ -64,12 +64,18 @@
                                         </c:choose>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="card-stor">
-                                        <img src="assets/img/icon/card.svg" alt="">
-                                        <span>0</span>
-                                    </div>
-                                </li>
+                                <c:if test="${sessionScope.user ne null}">
+                                    <li>
+                                        <c:set var="totalProducts" value="${0}" />
+                                        <c:forEach items="${sessionScope.user.productList}" var="p">
+                                            <c:set var="totalProducts" value="${totalProducts + p.quantity}" />
+                                        </c:forEach>
+                                        <a class="card-stor" href="cart">
+                                            <img src="assets/img/icon/card.svg" alt="">
+                                            <span>${totalProducts}</span>
+                                        </a>
+                                    </li>
+                                </c:if>
                             </ul>
                         </div>
                     </div>

@@ -23,6 +23,7 @@ public class Product {
     private ArrayList<Image> images = new ArrayList<>();
     private ArrayList<Category> categories = new ArrayList<>();
     private ArrayList<Comment> comments = new ArrayList<>();
+    private int quantity;
 
     public int getId() {
         return id;
@@ -102,6 +103,14 @@ public class Product {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
 }

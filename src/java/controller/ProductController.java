@@ -13,14 +13,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Comment;
 import model.Product;
+import model.User;
 
 /**
  *
  * @author #Panda
  */
-public class ProductDetailsController extends HttpServlet {
+public class ProductController extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -71,6 +73,31 @@ public class ProductDetailsController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        ProductDAO productDB = new ProductDAO();
+        String pid = request.getParameter("id");
+        String quan = request.getParameter("quantity");
+        int id = Integer.parseInt(pid);
+        int quantity = Integer.parseInt(quan);
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        ArrayList<Product> productList = user.getProductList();
+        boolean isExisted = false;
+        Product currentProduct = null;
+        for (Product product : productList) {
+            if (product.getId() == id) {
+                isExisted = true;
+                currentProduct = product;
+                break;
+            }
+        }
+        if (isExisted) {
+            currentProduct.setQuantity(currentProduct.getQuantity() + quantity);
+        } else {
+            currentProduct = productDB.getProductByID(id);
+            currentProduct.setQuantity(quantity);
+            productList.add(currentProduct);
+        }
+        response.sendRedirect("product?id=" + id);
     }
 
     /**

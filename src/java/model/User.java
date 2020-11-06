@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author #Panda
@@ -19,6 +21,7 @@ public class User {
     private String address;
     private String phonenumber;
     private String avatarURL;
+    private ArrayList<Product> productList = new ArrayList<>();
 
     public int getUserID() {
         return userID;
@@ -82,6 +85,14 @@ public class User {
 
     public void setAvatarURL(String avatarURL) {
         this.avatarURL = avatarURL;
+    }
+
+    public ArrayList<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(ArrayList<Product> productList) {
+        this.productList = productList;
     }
 
 }

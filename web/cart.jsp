@@ -36,79 +36,89 @@
             <section class="cart_area section-padding40">
                 <div class="container">
                     <div class="cart_inner">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Product</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Total</th>
-                                        <th scope="col">Remove Item</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:choose>
-                                        <c:when test="${not empty requestScope.productList}">
-                                            <c:set var = "total" value = "${0}"/>
-                                            <c:forEach items="${requestScope.productList}" var="p">
+                        <form action="cart" method="post">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Product</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Quantity</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Remove Item</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:choose>
+                                            <c:when test="${not empty sessionScope.user.productList}">
+                                                <c:set var = "total" value = "${0}"/>
+                                                <c:forEach items="${sessionScope.user.productList}" var="p">
+                                                    <tr>
+                                                        <td>
+                                                            <div class="media">
+                                                                <div class="d-flex">
+                                                                    <a href="product?id=${p.id}"><img src="${p.thumbnail}" alt="" /></a>
+                                                                </div>
+                                                                <div class="media-body">
+                                                                    <p><a href="product?id=${p.id}" style="color: black">${p.name}</a></p>
+                                                                </div>
+                                                                <input type="hidden" value="${p.id}" name="pid" />
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <h5>$${p.price}</h5>
+                                                        </td>
+                                                        <td>
+                                                            <div class="product_count">
+                                                                <input type="number" value="${p.quantity}" min="1" name="quantity" />
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <h5>$<fmt:formatNumber maxFractionDigits="3" value="${p.quantity * p.price}" /></h5>
+                                                        </td>
+                                                        <td><a href="" class="btn danger"><i class="far fa-trash-alt"></i></a></td>
+                                                                <c:set var = "total" value = "${total + p.quantity * p.price}"/>
+                                                    </tr>
+                                                </c:forEach>
                                                 <tr>
                                                     <td>
-                                                        <div class="media">
-                                                            <div class="d-flex">
-                                                                <img src="${p.thumbnail}" alt="" />
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <p>${p.name}</p>
-                                                            </div>
-                                                        </div>
+                                                        <h5>Cart total:</h5>
                                                     </td>
+                                                    <td></td>
+                                                    <td></td>
                                                     <td>
-                                                        <h5>$${p.price}</h5>
+                                                        <h5>$<fmt:formatNumber maxFractionDigits="3" value="${total}" /></h5>
                                                     </td>
-                                                    <td>
-                                                        <div class="product_count">
-                                                            <h5>${p.quantity}</h5>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <h5>$<fmt:formatNumber maxFractionDigits="3" value="${p.quantity * p.price}" /></h5>
-                                                    </td>
-                                                    <td><a href="" class="genric-btn danger"><i class="far fa-trash-alt"></i></a></td>
-                                                    <c:set var = "total" value = "${total + p.quantity * p.price}"/>
+                                                    <td></td>
                                                 </tr>
-                                            </c:forEach>
-                                            <tr>
-                                                <td>
-                                                    <h5>Cart total:</h5>
-                                                </td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>
-                                                    <h5>$<fmt:formatNumber maxFractionDigits="3" value="${total}" /></h5>
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td>Your Cart is Empty</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </tbody>
-                            </table>
-                            <div class="checkout_btn_inner float-right">
-                                <a class="btn" href="store">Continue Shopping</a>
-                                <c:if test="${not empty requestScope.productList}">
-                                    <a class="btn checkout_btn" href="checkout">Proceed to checkout</a>
-                                </c:if>
+                                                <tr class="bottom_button">
+                                                    <td><button type="submit" class="btn">Update Cart</button></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>Your Cart is Empty</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </tbody>
+                                </table>
+                                <div class="checkout_btn_inner float-right">
+                                    <a class="btn" href="store">Continue Shopping</a>
+                                    <c:if test="${not empty sessionScope.user.productList}">
+                                        <a class="btn checkout_btn" href="checkout">Proceed to checkout</a>
+                                    </c:if>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </section>

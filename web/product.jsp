@@ -40,11 +40,18 @@
                         <div class="col-lg-6">
                             <div class="flexslider">
                                 <ul class="slides">
-                                    <c:forEach items="${requestScope.product.images}" var="i">
-                                        <li data-thumb="${i.imgSrc}">
-                                            <img src="${i.imgSrc}" class="w-100" />
-                                        </li>
-                                    </c:forEach>
+                                    <c:choose>
+                                        <c:when test="${not empty requestScope.product.images}">
+                                            <c:forEach items="${requestScope.product.images}" var="i">
+                                                <li data-thumb="${i.imgSrc}">
+                                                    <img src="${i.imgSrc}" class="w-100" />
+                                                </li>
+                                            </c:forEach>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <img src="${requestScope.product.thumbnail}" class="w-100"/>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </ul>
                             </div>
                         </div>
@@ -73,7 +80,21 @@
                                             <span class="number-increment"> <i class="ti-plus"></i></span>
                                         </div>
                                         <div class="add_to_cart">
-                                            <button type="submit" class="btn"><i class="fas fa-cart-plus"></i> add to cart</button>
+                                            <c:choose>
+                                                <c:when test="${requestScope.product.available}">
+                                                    <c:choose>
+                                                        <c:when test="${sessionScope.user ne null}">
+                                                            <button type="submit" class="btn"><i class="fas fa-cart-plus"></i> add to cart</button>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <a href="login" class="btn"><i class="fas fa-sign-in-alt"></i> Login to Buy</a>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <a href="contact" class="btn">Contact Us</a>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </div>
                                     </form>
                                     <div class="social_icon">

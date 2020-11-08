@@ -22,15 +22,22 @@ public class CartController extends BaseAuthController {
 
     @Override
     protected void processGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        ArrayList<Product> productList = user.getProductList();
-        request.setAttribute("productList", productList);
         request.getRequestDispatcher("cart.jsp").forward(request, response);
     }
 
     @Override
     protected void processPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        ArrayList<Product> productList = user.getProductList();
+        String[] productQuantities = request.getParameterValues("quantity");
+        String[] productIDs = request.getParameterValues("pid");
+        for (int i = 0; i < productList.size(); i++) {
+            if (productList.get(i).getId() == Integer.parseInt(productIDs[i])) {
+                productList.get(i).setQuantity(Integer.parseInt(productQuantities[i]));
+            }
+        }
+        doGet(request, response);
     }
 
 }

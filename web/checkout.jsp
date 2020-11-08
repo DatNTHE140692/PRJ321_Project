@@ -37,32 +37,29 @@
             <section class="checkout_area section-padding40">
                 <div class="container">
                     <div class="billing_details">
-                        <form class="row contact_form" action="checkout" method="post" novalidate="novalidate">
+                        <form class="row contact_form" action="checkout" method="post">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <h3>Billing Details</h3>
                                     <div class="row">
-                                        <div class="col-md-6 form-group p_star">
-                                            <input type="text" class="form-control" id="first" name="name" />
-                                            <span class="placeholder" data-placeholder="First name"></span>
+                                        <div class="col-md-12 form-group p_star">
+                                            <label for="name">Your Name:</label>
+                                            <input type="text" class="form-control" name="name" value="${sessionScope.user.fullname}"required />
                                         </div>
                                         <div class="col-md-6 form-group p_star">
-                                            <input type="text" class="form-control" id="last" name="name" />
-                                            <span class="placeholder" data-placeholder="Last name"></span>
+                                            <label for="email">Your Email:</label>
+                                            <input type="text" class="form-control" name="email" value="${sessionScope.user.email}" required />
                                         </div>
                                         <div class="col-md-6 form-group p_star">
-                                            <input type="text" class="form-control" id="number" name="number" />
-                                            <span class="placeholder" data-placeholder="Phone number"></span>
-                                        </div>
-                                        <div class="col-md-6 form-group p_star">
-                                            <input type="text" class="form-control" id="email" name="compemailany" />
-                                            <span class="placeholder" data-placeholder="Email Address"></span>
+                                            <label for="phone">Phone Number:</label>
+                                            <input type="text" class="form-control" name="phone" value="${sessionScope.user.phonenumber}" required/>
                                         </div>
                                         <div class="col-md-12 form-group p_star">
-                                            <input type="text" class="form-control" id="add" name="add2" />
-                                            <span class="placeholder" data-placeholder="Address"></span>
+                                            <label for="address">Your Address:</label>
+                                            <input type="text" class="form-control" name="address" value="${sessionScope.user.address}" required/>
                                         </div>
                                         <div class="col-md-12 form-group">
+                                            <label for="address">Order Notes:</label>
                                             <textarea class="form-control" name="message" id="message" rows="1" placeholder="Order Notes"></textarea>
                                         </div>
                                     </div>
@@ -95,9 +92,10 @@
                                             </li>
                                             <li>
                                                 <a href="#">Total <span>$<fmt:formatNumber maxFractionDigits="3" value="${total + 50}" /></span></a>
+                                                <input type="hidden" name="cartTotal" value="<fmt:formatNumber value="${total + 50}" type="number" groupingUsed="false" maxFractionDigits="3" />" />   
                                             </li>
                                         </ul>
-                                        <button class="btn w-100">Complete Order</button>
+                                        <button class="btn w-100" type="submit">Complete Order</button>
                                     </div>
                                 </div>
                             </div>

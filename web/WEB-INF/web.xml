@@ -56,6 +56,10 @@
         <servlet-name>StoreController</servlet-name>
         <servlet-class>controller.StoreController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RemoveCartItemController</servlet-name>
+        <servlet-class>controller.RemoveCartItemController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ContactController</servlet-name>
         <url-pattern>/contact</url-pattern>
@@ -114,6 +118,10 @@
     <servlet-mapping>
         <servlet-name>StoreController</servlet-name>
         <url-pattern>/store</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveCartItemController</servlet-name>
+        <url-pattern>/remove</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

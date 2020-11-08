@@ -5,54 +5,61 @@
  */
 package controller;
 
+import dal.OrderDAO;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Order;
+import model.Product;
+import model.User;
 
 /**
  *
  * @author #Panda
  */
-public class CheckoutController extends HttpServlet {
+public class CheckoutController extends BaseAuthController {
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.getRequestDispatcher("checkout.jsp").forward(request, response);
+    protected void processGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        if (user.getProductList().isEmpty()) {
+            response.sendRedirect("cart");
+        } else {
+            request.getRequestDispatcher("checkout.jsp").forward(request, response);
+        }
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void processPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+        String orderNotes = request.getParameter("message");
+        float cartTotal = Float.parseFloat(request.getParameter("cartTotal"));
+        orderNotes = (orderNotes == null || orderNotes.trim().isEmpty()) ? "" : orderNotes;
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        ArrayList<Product> productList = user.getProductList();
+        Order order = new Order();
+        User u = new User();
+        u.setUserID(user.getUserID());
+        u.setFullname(name);
+        u.setEmail(email);
+        u.setPhonenumber(phone);
+        u.setAddress(address);
+        order.setUser(u);
+        order.setOrderNotes(orderNotes);
+        order.setProducts(productList);
+        order.setCartTotal(cartTotal);
+        OrderDAO orderDB = new OrderDAO();
+        orderDB.insert(order);
+        productList.clear();
+        response.sendRedirect("home");
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

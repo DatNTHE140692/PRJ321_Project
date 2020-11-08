@@ -76,7 +76,7 @@
                                                         <td>
                                                             <h5>$<fmt:formatNumber maxFractionDigits="3" value="${p.quantity * p.price}" /></h5>
                                                         </td>
-                                                        <td><a href="" class="btn danger"><i class="far fa-trash-alt"></i></a></td>
+                                                        <td><a href="remove?id=${p.id}" class="btn danger"><i class="far fa-trash-alt"></i></a></td>
                                                                 <c:set var = "total" value = "${total + p.quantity * p.price}"/>
                                                     </tr>
                                                 </c:forEach>

@@ -60,7 +60,7 @@
                                                                     <a href="product?id=${p.id}"><img src="${p.thumbnail}" alt="" /></a>
                                                                 </div>
                                                                 <div class="media-body">
-                                                                    <p><a href="product?id=${p.id}" style="color: black">${p.name}</a></p>
+                                                                    <p><h5><a href="product?id=${p.id}">${p.name}</a></h5></p>
                                                                 </div>
                                                                 <input type="hidden" value="${p.id}" name="pid" />
                                                             </div>

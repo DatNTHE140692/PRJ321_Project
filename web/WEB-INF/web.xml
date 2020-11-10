@@ -60,6 +60,14 @@
         <servlet-name>RemoveCartItemController</servlet-name>
         <servlet-class>controller.RemoveCartItemController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OrderHistoryController</servlet-name>
+        <servlet-class>controller.OrderHistoryController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewOrderController</servlet-name>
+        <servlet-class>controller.ViewOrderController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ContactController</servlet-name>
         <url-pattern>/contact</url-pattern>
@@ -122,6 +130,14 @@
     <servlet-mapping>
         <servlet-name>RemoveCartItemController</servlet-name>
         <url-pattern>/remove</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderHistoryController</servlet-name>
+        <url-pattern>/history</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewOrderController</servlet-name>
+        <url-pattern>/viewOrder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

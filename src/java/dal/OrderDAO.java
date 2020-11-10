@@ -8,10 +8,12 @@ package dal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Order;
 import model.Product;
+import model.User;
 
 /**
  *
@@ -51,4 +53,33 @@ public class OrderDAO extends BaseDAO {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public ArrayList<Order> getOrders(int userID) {
+        ArrayList<Order> orders = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM dbo.Orders WHERE userID = ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, userID);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {                
+                Order order = new Order();
+                order.setId(rs.getInt("orderID"));
+                order.setOrderTime(rs.getTimestamp("orderDate"));
+                order.setCartTotal(rs.getFloat("orderTotal"));
+                order.setOrderNotes(rs.getString("orderNotes"));
+                User user = new User();
+                user.setUserID(userID);
+                user.setFullname(rs.getString("fullName"));
+                user.setAddress(rs.getString("address"));
+                user.setEmail(rs.getString("email"));
+                user.setPhonenumber(rs.getString("phoneNumber"));
+                order.setUser(user);
+                orders.add(order);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return orders;
+    }
+    
 }

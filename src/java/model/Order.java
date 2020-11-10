@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 /**
@@ -15,6 +16,7 @@ public class Order {
 
     private int id;
     private User user;
+    private Timestamp orderTime;
     private ArrayList<Product> products = new ArrayList<>();
     private float cartTotal;
     private String orderNotes;
@@ -59,4 +61,11 @@ public class Order {
         this.orderNotes = orderNotes;
     }
 
+    public Timestamp getOrderTime() {
+        return orderTime;
+    }
+
+    public void setOrderTime(Timestamp orderTime) {
+        this.orderTime = orderTime;
+    }
 }

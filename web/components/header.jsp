@@ -54,6 +54,7 @@
                                                             <ul class="submenu">
                                                                 <li><a href="profile"><i class="far fa-address-card"></i> My Profile</a></li>
                                                                 <li><a href="change-password"><i class="fas fa-key"></i> Change Password</a></li>
+                                                                <li><a href="history"><i class="fas fa-history"></i> Orders History</a></li>
                                                                 <li><a href="cart"><i class="fas fa-shopping-cart"></i> Cart</a></li>
                                                                 <li><a href="logout"><i class="fas fa-sign-out-alt"></i> Log Out!</a></li>
                                                             </ul>

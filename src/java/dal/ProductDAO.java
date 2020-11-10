@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import model.Category;
 import model.Comment;
 import model.Image;
+import model.Order;
 import model.Product;
 
 /**
@@ -22,52 +23,51 @@ import model.Product;
  */
 public class ProductDAO extends BaseDAO {
 
-    public ArrayList<Product> getProducts() {
-        ArrayList<Product> products = new ArrayList<>();
-        try {
-            String sql = "SELECT p.pid, p.pname, p.price, p.pshortdesc, p.pdesc, p.available, p.pthumbnail, ISNULL(c.cid, -1) cid, c.cname, ISNULL(pi.imgid, -1) imgid, pi.imageURL FROM dbo.Products p LEFT OUTER JOIN dbo.Product_Categories pc ON pc.pid = p.pid LEFT OUTER JOIN dbo.Categories c ON c.cid = pc.cid  LEFT OUTER JOIN dbo.Product_Images pi ON pi.pid = p.pid";
-            PreparedStatement st = connection.prepareStatement(sql);
-            ResultSet rs = st.executeQuery();
-            Product product = new Product();
-            product.setId(-1);
-            Category category = new Category();
-            category.setId(-1);
-            Image image = new Image();
-            image.setId(-1);
-            while (rs.next()) {
-                int pid = rs.getInt("pid");
-                if (product.getId() != pid) {
-                    product = new Product();
-                    product.setId(pid);
-                    product.setName(rs.getString("pname"));
-                    product.setPrice(rs.getFloat("price"));
-                    product.setShortDesc(rs.getString("pshortdesc"));
-                    product.setDesc(rs.getString("pdesc"));
-                    product.setAvailable(rs.getBoolean("available"));
-                    product.setThumbnail(rs.getString("pthumbnail"));
-                    products.add(product);
-                }
-                int cateid = rs.getInt("cid");
-                if (cateid != category.getId() && cateid != -1) {
-                    category = new Category();
-                    category.setId(cateid);
-                    category.setName(rs.getString("cname"));
-                    product.getCategories().add(category);
-                }
-                int imgid = rs.getInt("imgid");
-                if (imgid != image.getId() && imgid != -1) {
-                    image = new Image();
-                    image.setId(imgid);
-                    image.setImgSrc(rs.getString("imageURL"));
-                    product.getImages().add(image);
-                }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return products;
-    }
-
+//    public ArrayList<Product> getProducts() {
+//        ArrayList<Product> products = new ArrayList<>();
+//        try {
+//            String sql = "SELECT p.pid, p.pname, p.price, p.pshortdesc, p.pdesc, p.available, p.pthumbnail, ISNULL(c.cid, -1) cid, c.cname, ISNULL(pi.imgid, -1) imgid, pi.imageURL FROM dbo.Products p LEFT OUTER JOIN dbo.Product_Categories pc ON pc.pid = p.pid LEFT OUTER JOIN dbo.Categories c ON c.cid = pc.cid  LEFT OUTER JOIN dbo.Product_Images pi ON pi.pid = p.pid";
+//            PreparedStatement st = connection.prepareStatement(sql);
+//            ResultSet rs = st.executeQuery();
+//            Product product = new Product();
+//            product.setId(-1);
+//            Category category = new Category();
+//            category.setId(-1);
+//            Image image = new Image();
+//            image.setId(-1);
+//            while (rs.next()) {
+//                int pid = rs.getInt("pid");
+//                if (product.getId() != pid) {
+//                    product = new Product();
+//                    product.setId(pid);
+//                    product.setName(rs.getString("pname"));
+//                    product.setPrice(rs.getFloat("price"));
+//                    product.setShortDesc(rs.getString("pshortdesc"));
+//                    product.setDesc(rs.getString("pdesc"));
+//                    product.setAvailable(rs.getBoolean("available"));
+//                    product.setThumbnail(rs.getString("pthumbnail"));
+//                    products.add(product);
+//                }
+//                int cateid = rs.getInt("cid");
+//                if (cateid != category.getId() && cateid != -1) {
+//                    category = new Category();
+//                    category.setId(cateid);
+//                    category.setName(rs.getString("cname"));
+//                    product.getCategories().add(category);
+//                }
+//                int imgid = rs.getInt("imgid");
+//                if (imgid != image.getId() && imgid != -1) {
+//                    image = new Image();
+//                    image.setId(imgid);
+//                    image.setImgSrc(rs.getString("imageURL"));
+//                    product.getImages().add(image);
+//                }
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return products;
+//    }
     public Product getProductByID(int id) {
         try {
             String sql = "SELECT p.pid, p.pname, p.price, p.pshortdesc, p.pdesc, p.available, p.pthumbnail, ISNULL(c.cid, -1) cid, c.cname, ISNULL(pi.imgid, -1) imgid, pi.imageURL FROM dbo.Products p LEFT OUTER JOIN dbo.Product_Categories pc ON pc.pid = p.pid LEFT OUTER JOIN dbo.Categories c ON c.cid = pc.cid  LEFT OUTER JOIN dbo.Product_Images pi ON pi.pid = p.pid WHERE p.pid = ?";
@@ -255,5 +255,26 @@ public class ProductDAO extends BaseDAO {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return count;
+    }
+
+    public ArrayList<Product> getProductsByOrder(int orderID) {
+        ArrayList<Product> products = new ArrayList<>();
+        try {
+            String sql = "SELECT p.pname, p.price, p.pthumbnail, od.quantity FROM dbo.OrderDetails od INNER JOIN dbo.Products p ON od.productID = p.pid WHERE od.orderID = ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, orderID);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setName(rs.getString("pname"));
+                product.setPrice(rs.getFloat("price"));
+                product.setQuantity(rs.getInt("quantity"));
+                product.setThumbnail(rs.getString("pthumbnail"));
+                products.add(product);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products;
     }
 }

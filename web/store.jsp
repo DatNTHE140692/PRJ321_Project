@@ -73,7 +73,7 @@
                                         </div>
                                     </div>
                                     <div class="col-12 mt-10">
-                                        <form action="search" class="row" id="store_search">
+                                        <form action="filter" class="row" id="store_search">
                                             <div class="form-group mb-20 w-100">
                                                 <label for="name">Name:</label>
                                                 <input type="text" name="keyword" class="search_input w-100" placeholder="Product Name"/>

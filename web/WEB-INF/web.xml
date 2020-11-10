@@ -68,6 +68,10 @@
         <servlet-name>ViewOrderController</servlet-name>
         <servlet-class>controller.ViewOrderController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FilterController</servlet-name>
+        <servlet-class>controller.FilterController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ContactController</servlet-name>
         <url-pattern>/contact</url-pattern>
@@ -138,6 +142,10 @@
     <servlet-mapping>
         <servlet-name>ViewOrderController</servlet-name>
         <url-pattern>/viewOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FilterController</servlet-name>
+        <url-pattern>/filter</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

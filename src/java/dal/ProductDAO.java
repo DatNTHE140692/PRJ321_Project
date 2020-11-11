@@ -273,7 +273,6 @@ public class ProductDAO extends BaseDAO {
                 parameters.put(paramCount, params);
             }
             sql += ") SELECT * FROM r WHERE r.rownum >= (? - 1) * ? + 1 AND r.rownum <= ? * ?";
-            System.out.println(sql);
             PreparedStatement st = connection.prepareStatement(sql);
             for (Map.Entry<Integer, Object[]> values : parameters.entrySet()) {
                 Integer index = values.getKey();

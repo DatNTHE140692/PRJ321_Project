@@ -54,12 +54,12 @@
                                                 <div class="col-xl-4 col-lg-4 col-md-3 col-sm-6">
                                                     <div class="single-new-arrival mb-50 text-center">
                                                         <div class="popular-img">
-                                                            <a href="product_details?id=${p.id}">
+                                                            <a href="product?id=${p.id}">
                                                                 <img src="${p.thumbnail}" alt="">
                                                             </a>
                                                         </div>
                                                         <div class="popular-caption">
-                                                            <h3><a href="product_details?id=${p.id}">${p.name}</a></h3>
+                                                            <h3><a href="product?id=${p.id}">${p.name}</a></h3>
                                                             <span>$${p.price}</span>
                                                         </div>
                                                     </div>

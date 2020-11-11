@@ -85,7 +85,90 @@
         </main>
         <%@include file="components/js.jsp" %>
         <%@include file="components/footer.jsp" %>
-        <script src="assets/js/pagger.js"></script>
-        <script>pagger('pagination', 'keyword', '${requestScope.keyword}', ${requestScope.pageIndex}, ${requestScope.totalPages}, 2);</script>
+        <script>
+            const params = new Map();
+            params.set('keyword', '${requestScope.keyword}');
+            params.set('category', ${requestScope.category});
+            params.set('pFrom', ${requestScope.priceFrom});
+            params.set('pTo', ${requestScope.priceTo});
+            function paggerBasic(paggerClass, pageIndex, totalPages, gap) {
+                const pagger = document.getElementsByClassName(paggerClass);
+                for (let i = 0; i < pagger.length; i++) {
+                    const paggerEl = pagger[i];
+                    if (pageIndex - gap > 1) {
+                        const firstPagger = document.createElement('li');
+                        firstPagger.setAttribute('class', 'page-item');
+                        const firstPaggerLink = document.createElement('a');
+                        firstPaggerLink.setAttribute('class', 'page-link');
+                        link = '?';
+                        for (var [key, value] of params) {
+                            link += key + '=' + value + '&';
+                        }
+                        link += 'page=1';
+                        firstPaggerLink.href = link;
+                        firstPaggerLink.innerHTML = 'First';
+                        firstPagger.appendChild(firstPaggerLink);
+                        paggerEl.appendChild(firstPagger);
+                    }
+                    for (let j = pageIndex - gap; j < pageIndex; j++) {
+                        if (j > 0) {
+                            const numPagger = document.createElement('li');
+                            numPagger.setAttribute('class', 'page-item');
+                            const numPaggerLink = document.createElement('a');
+                            numPaggerLink.setAttribute('class', 'page-link');
+                            link = '?';
+                            for (var [key, value] of params) {
+                                link += key + '=' + value + '&';
+                            }
+                            link += 'page=' + j;
+                            numPaggerLink.href = link;
+                            numPaggerLink.innerHTML = j;
+                            numPagger.appendChild(numPaggerLink);
+                            paggerEl.appendChild(numPagger);
+                        }
+                    }
+                    const currentPagger = document.createElement('li');
+                    currentPagger.setAttribute('class', 'page-item active');
+                    const currentPaggerLink = document.createElement('a');
+                    currentPaggerLink.setAttribute('class', 'page-link');
+                    currentPaggerLink.innerHTML = pageIndex + '<span class="sr-only">(current)</span>';
+                    currentPagger.appendChild(currentPaggerLink);
+                    paggerEl.appendChild(currentPagger);
+                    for (let j = pageIndex + 1; j < pageIndex + gap + 1; j++) {
+                        if (j <= totalPages) {
+                            const numPagger = document.createElement('li');
+                            numPagger.setAttribute('class', 'page-item');
+                            const numPaggerLink = document.createElement('a');
+                            numPaggerLink.setAttribute('class', 'page-link');
+                            link = '?';
+                            for (var [key, value] of params) {
+                                link += key + '=' + value + '&';
+                            }
+                            link += 'page=' + j;
+                            numPaggerLink.href = link;
+                            numPaggerLink.innerHTML = j;
+                            numPagger.appendChild(numPaggerLink);
+                            paggerEl.appendChild(numPagger);
+                        }
+                    }
+                    if (pageIndex + gap < totalPages) {
+                        const lastPagger = document.createElement('li');
+                        lastPagger.setAttribute('class', 'page-item');
+                        const lastPaggerLink = document.createElement('a');
+                        lastPaggerLink.setAttribute('class', 'page-link');
+                        link = '?';
+                        for (var [key, value] of params) {
+                            link += key + '=' + value + '&';
+                        }
+                        link += 'page=' + totalPages;
+                        lastPaggerLink.href = link;
+                        lastPaggerLink.innerHTML = 'Last';
+                        lastPagger.appendChild(lastPaggerLink);
+                        paggerEl.appendChild(lastPagger);
+                    }
+                }
+            }
+        </script>
+        <script>paggerBasic('pagination', ${requestScope.pageIndex}, ${requestScope.totalPages}, 2);</script>
     </body>
 </html>

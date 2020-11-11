@@ -5,11 +5,14 @@
  */
 package controller;
 
+import dal.ProductDAO;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Product;
 
 /**
  *
@@ -29,7 +32,28 @@ public class FilterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
+        String key = request.getParameter("keyword");
+        int cateid = Integer.parseInt(request.getParameter("category"));
+        float priceFrom = Integer.parseInt(request.getParameter("pFrom"));
+        float priceTo = Integer.parseInt(request.getParameter("pTo"));
+        String page = request.getParameter("page");
+        page = (page == null || page.trim().isEmpty()) ? "1" : page;
+        int pageIndex = Integer.parseInt(page);
+        int pageSize = 9;
+        ProductDAO productDB = new ProductDAO();
+        ArrayList<Product> products = productDB.filterProduct(key, cateid, priceFrom, priceTo, pageIndex, pageSize);
+        int totalRecords = productDB.getTotalFilterProducts(key, cateid, priceFrom, priceTo);
+        int totalPages = (totalRecords % pageSize == 0) ? totalRecords / pageSize : totalRecords / pageSize + 1;
+        request.setAttribute("keyword", key);
+        request.setAttribute("category", cateid);
+        request.setAttribute("priceFrom", priceFrom);
+        request.setAttribute("priceTo", priceTo);
+        request.setAttribute("pageIndex", pageIndex);
+        request.setAttribute("pageSize", pageSize);
+        request.setAttribute("totalPages", totalPages);
+        request.setAttribute("totalRecords", totalRecords);
+        request.setAttribute("products", products);
         request.getRequestDispatcher("filter.jsp").forward(request, response);
     }
 

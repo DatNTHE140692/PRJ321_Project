@@ -17,6 +17,7 @@ import model.Category;
 import model.Comment;
 import model.Image;
 import model.Product;
+import model.User;
 
 /**
  *
@@ -213,12 +214,16 @@ public class ProductDAO extends BaseDAO {
         return count;
     }
 
-    public ArrayList<Product> getProductsByOrder(int orderID) {
+    public ArrayList<Product> getProductsByOrder(int orderID, User user) {
         ArrayList<Product> products = new ArrayList<>();
         try {
-            String sql = "SELECT p.pname, p.price, p.pthumbnail, od.quantity FROM dbo.OrderDetails od INNER JOIN dbo.Products p ON od.productID = p.pid WHERE od.orderID = ?";
+            String sql = "SELECT p.pname, p.price, p.pthumbnail, od.quantity \n"
+                    + "FROM dbo.OrderDetails od INNER JOIN dbo.Products p ON od.productID = p.pid \n"
+                    + "INNER JOIN dbo.Orders o ON o.orderID = od.orderID\n"
+                    + "WHERE od.orderID = ? AND o.userID = ?";
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, orderID);
+            st.setInt(2, user.getUserID());
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 Product product = new Product();

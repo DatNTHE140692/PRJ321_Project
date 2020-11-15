@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Product;
+import model.User;
 
 /**
  *
@@ -25,11 +27,17 @@ public class ViewOrderController extends BaseAuthController {
         if (orderID == null || orderID.trim().isEmpty()) {
             response.sendRedirect("history");
         } else {
+            HttpSession session = request.getSession();
+            User user = (User) session.getAttribute("user");
             int id = Integer.parseInt(orderID);
             ProductDAO productDB = new ProductDAO();
-            ArrayList<Product> productsByOrder = productDB.getProductsByOrder(id);
-            request.setAttribute("products", productsByOrder);
-            request.getRequestDispatcher("viewOrder.jsp").forward(request, response);
+            ArrayList<Product> productsByOrder = productDB.getProductsByOrder(id, user);
+            if (productsByOrder.isEmpty()) {
+                response.sendRedirect("404.jsp");
+            } else {
+                request.setAttribute("products", productsByOrder);
+                request.getRequestDispatcher("viewOrder.jsp").forward(request, response);
+            }
         }
     }
 
